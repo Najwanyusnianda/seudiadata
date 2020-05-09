@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('layout.master_front');
 });
+
+
+Route::get('/poverty','KemiskinanDashboardController@index');

@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tables - Atlantis Bootstrap 4 Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-    <link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon">
+    <link rel="icon" href="#" type="image/x-icon">
 
     <!-- Fonts and icons -->
     <script src="{{ asset('assets/atlantis/js/plugin/webfont/webfont.min.js') }}"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" media="all">
     <link rel="stylesheet" href="{{ asset('assets/atlantis/css/fonts.min.css') }}" media="all">
     <link rel="stylesheet" href="{{ asset('assets/chartJS/Chart.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/leafletJS/leaflet.css') }}">
     <script>
         WebFont.load({
             google: {
@@ -32,37 +33,21 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/atlantis/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/atlantis/css/atlantis.min.css') }}">
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-   
+
+
+    <!-- CSS Just for demo purpose, don't include it in your project --> 
+    <style>
+        .logo-header .nav-toggle{
+            top: 20 !important;
+        }
+    </style>
+   @yield('styles')
 </head>
 
 <body>
     <div class="wrapper">
         <div class="main-header">
-            <!-- Logo Header -->
-            <div class="logo-header" data-background-color="white">
-<!--
-                <a href="../index.html" class="logo">
-                    <img src="../../assets/img/logo2.svg" alt="navbar brand" class="navbar-brand">
-                </a>
-                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
-                    data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">
-                        <i class="icon-menu"></i>
-                    </span>
-                </button>
-                <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
-                <div class="nav-toggle">
-                    <button class="btn btn-toggle toggle-sidebar"><i class="icon-menu"></i></button>
-                </div>-->
-            </div>
-            <!-- End Logo Header -->
-
-            <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="white">
-                @include('layout._navbar')
-            </nav>
-            <!-- End Navbar -->
+            @include('layout._navbar')
         </div>
         <!-- Sidebar -->
         <div class="sidebar sidebar-style-2" data-background-color="white">
@@ -146,12 +131,17 @@
     <script src="{{ asset('assets/atlantis/js/atlantis.min.js') }}"></script> 
 <script src="{{ asset('assets/chartJS/Chart.bundle.min.js') }}"></script>
 
+<script src="{{ asset('assets/leafletJS/leaflet.js') }}"></script> 
+
 
     <div
         style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
         <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
         </div>
     </div>
+
+
+    @yield('scripts')
 </body>
 
 </html>
