@@ -1,0 +1,1 @@
+@extends('layour.master_front')
