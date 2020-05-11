@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/poverty','KemiskinanDashboardController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

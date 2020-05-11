@@ -1,7 +1,7 @@
 <html lang="en"
     class="wf-lato-n3-active wf-lato-n4-active wf-lato-n7-active wf-lato-n9-active wf-flaticon-n4-inactive wf-fontawesome5solid-n4-active wf-fontawesome5regular-n4-active wf-fontawesome5brands-n4-active wf-simplelineicons-n4-active wf-active sidebar-color">
 
-<head>
+<head>                  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tables - Atlantis Bootstrap 4 Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
