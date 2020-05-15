@@ -36,192 +36,76 @@
             </style>
 @endsection
 
+
+@section('page_header')
+<h4 class="page-title">Kemiskinan</h4>
+<ul class="breadcrumbs">
+    <li class="nav-home">
+        <a href="#">
+            <i class="flaticon-home"></i>
+        </a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="#">Tables</a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="#">Basic Tables</a>
+    </li>
+</ul>
+@endsection
 @section('content')
-    <div class="container-fluid">
-        <div class="row-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-head-row card-tools-still-right">
-                        <h4 class="card-title">Garis Kemiskinan</h4>
-                        <div class="card-tools">
-                            <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
-                            <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
-                            <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
-                        </div>
-                    </div>
-                    <p class="card-category"> Perkembangan Garis Kemiskinan di Aceh Barat Daya tahun 2010-2019</p>
-                </div>
-                <div class="card-body">
-                  <table class="table table-condensed">
-                      <tbody>
-                          <tr>
-                            <td  width="50%">
-                                <div class="">
-                                    <canvas id="myChart"></canvas>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex autem a, 
-                                    nostrum modi vero neque tenetur perspiciatis architecto nisi sapiente ab odit,
-                                     voluptatem earum quam beatae officiis sunt doloribus officia.
-                                                            </div>
-                            </td>
-                        </tr>
-                      </tbody>
-                  </table>
 
-
-
-                    </div>
-               
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <div id="map"></div>
-                </div>
-            </div>
+        <ul class="nav nav-pills nav-secondary nav-pills-no-bd" id="pills-tab-without-border" role="tablist">
+            <li class="nav-item submenu">
+                <a class="nav-link active show" id="pills-home-tab-nobd" data-toggle="pill" href="#pills-home-nobd" role="tab" aria-controls="pills-home-nobd" aria-selected="true">Ulasana</a>
+            </li>
+            <li class="nav-item submenu">
+                <a class="nav-link" id="pills-profile-tab-nobd" data-toggle="pill" href="#pills-profile-nobd" role="tab" aria-controls="pills-profile-nobd" aria-selected="false">Peta</a>
+            </li>
+            <li class="nav-item submenu">
+                <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="false">Grafik</a>
+            </li>
+        </ul> 
+        <br>
+        <div class="kemiskinan-wrapper">
+            @yield('kemiskinan-content')
         </div>
-    </div>
+ 
+  
 @endsection
 
 
 @section('scripts')
 
-<script src="{{ asset('data/us-states.js') }}"></script>
-    <script>
-        var gk_data=@json($garis_kemiskinan,JSON_PRETTY_PRINT);
-        var tahun_gk=@json($tahun,JSON_PRETTY_PRINT);
+<script >
 
-        gk_data=JSON.parse(gk_data);
-        
-        //tahun_gk=JSON.parse(tahun_gk);
-        
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
-    // The type of chart we want to create
-            type: 'line',
+    function getInterface(pageUrl){
+        $.ajax({
+                url: pageUrl,
+                dataType: 'html',
+                global: false,
+                success: function(response) {
+                   // console.log("Data: " + response);
+                   
+                $('.kemiskinan-wrapper').html(response);
 
-    // The data for our dataset
-    data: {
-        labels: tahun_gk,
-        datasets: [{
-            label: 'Garis Kemiskinan',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: gk_data
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-    </script>
-
-
-
-<script>
-console.log(statesData);
-var mapboxAccessToken = 'pk.eyJ1IjoiZW5qZXdlIiwiYSI6ImNrOXphaW1jZDBjcHIzZW52Y2cwczM3cTMifQ.CNAgLezF4O0YBasQm4bEdA';
-var map = L.map('map').setView([4.569413, 96.733986], 7);
-console.log(map);
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
-    id: 'mapbox/light-v9',
-    attribution: "...",
-    tileSize: 512,
-    zoomOffset: -1
-}).addTo(map);
-
-// control that shows state info on hover
-    var info = L.control();
-
-    info.onAdd = function (map) {
-		this._div = L.DomUtil.create('div', 'info');
-		this.update();
-		return this._div;
-	};
-
-	info.update = function (props) {
-		this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-			'<b>' + props.NAME_2 + '</b><br />' + props.CC_2 + ' people / mi<sup>2</sup>'
-			: 'Hover over a state');
-    };
-    info.addTo(map);
-	// get color depending on population density value
-	function getColor(d) {
-		return d > 1100 ? '#800026' :'#6655';
-			 
+                },
+                error:function(e){
+                
+                }
+            });       
     }
-    function style(feature) {
-		return {
-			weight: 2,
-			opacity: 1,
-			color: 'white',
-			dashArray: '3',
-			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.CC_2)
-		};
-    }
-    
-    function highlightFeature(e) {
-		var layer = e.target;
+    $(document).ready(function(){
 
-		layer.setStyle({
-			weight: 5,
-			color: '#666',
-			dashArray: '',
-			fillOpacity: 0.7
-		});
+    })
 
-		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-			layer.bringToFront();
-		}
-
-		info.update(layer.feature.properties);
-    }
-    
-    var geojson;
-
-	function resetHighlight(e) {
-		geojson.resetStyle(e.target);
-		info.update();
-	}
-
-	function zoomToFeature(e) {
-		map.fitBounds(e.target.getBounds());
-	}
-
-	function onEachFeature(feature, layer) {
-		layer.on({
-			mouseover: highlightFeature,
-			mouseout: resetHighlight,
-			click: zoomToFeature
-		});
-    }
-    
-    function joinProperties(geojson,json){
-        geojson.features.forEach(element => {
-            //console.log(element)
-            if(element.properties.CC_2==json.id){
-                element.propertes.value=json.value
-            }
-            
-        });
-
-        return geojson;
-    }
-
-var geodata;
-
-$.getJSON("/data/Aceh.json",function(data){
-    geodata=data;
-    geojson = L.geoJson(data,{
-        style: style,
-		onEachFeature: onEachFeature
-    }).addTo(map);
-})
 
 </script>
+
 @endsection

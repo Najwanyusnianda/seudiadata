@@ -1,5 +1,8 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +21,17 @@ Route::get('/', function () {
 
 Route::get('/poverty','KemiskinanDashboardController@index');
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/poverty','KemiskinanDashboardController@index');
+    Route::name('kemiskinan.')->group(function () {
+        Route::get('/poverty/graph','KemiskinanDashboardController@graph_index');
+        Route::get('/poverty/map','KemiskinanDashboardController@map_index');
+    });
+});

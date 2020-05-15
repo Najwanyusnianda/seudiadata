@@ -17,4 +17,13 @@ class KemiskinanDashboardController extends Controller
         return view('frontend.kemiskinan.kemiskinan',['garis_kemiskinan'=>$garis_kemiskinan,
         'tahun'=>$tahun]);
     }
+
+    public function graph_index(){
+        return view('frontend.kemiskinan.graph_kemiskinan');
+    }
+
+
+    public function map_index(){
+        return view('frontend.kemiskinan.graph_kemiskinan');
+    }
 }
