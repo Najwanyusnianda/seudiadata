@@ -52,11 +52,6 @@
                                     <span class="sub-item">Dashboard 1</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="../../demo2/index.html">
-                                    <span class="sub-item">Dashboard 2</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </li>
@@ -66,17 +61,33 @@
                     </span>
                     <h4 class="text-section">Kategori</h4>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('kemiskinan/*')? 'submenu active' : ''}} ">
                     <a data-toggle="collapse" href="#base">
                         <i class="fas fa-layer-group"></i>
                         <p>Sosial Kependudukan</p>
                         <span class="caret"></span>
                     </a>
+                <div class="collapse {{Request::is('kemiskinan/*')? 'show' : ''}} " id="base">
+                        <ul class="nav nav-collapse ">
+                            <li class="{{Request::is('kemiskinan/*')? 'active' : ''}}">
+                            <a href="{{route('kemiskinan.index')}}">
+                                    <span class="sub-item">Kemiskinan</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#base">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Ekonomi</p>
+                        <span class="caret"></span>
+                    </a>
                     <div class="collapse" id="base">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="../components/avatars.html">
-                                    <span class="sub-item">Kemiskinan</span>
+                                <a href="#">
+                                    <span class="sub-item">PDRB</span>
                                 </a>
                             </li>
                         </ul>

@@ -61,20 +61,23 @@
 @endsection
 @section('content')
 
-        <ul class="nav nav-pills nav-secondary nav-pills-no-bd" id="pills-tab-without-border" role="tablist">
-            <li class="nav-item submenu">
-                <a class="nav-link active show" id="pills-home-tab-nobd" data-toggle="pill" href="#pills-home-nobd" role="tab" aria-controls="pills-home-nobd" aria-selected="true">Ulasana</a>
-            </li>
-            <li class="nav-item submenu">
-                <a class="nav-link" id="pills-profile-tab-nobd" data-toggle="pill" href="#pills-profile-nobd" role="tab" aria-controls="pills-profile-nobd" aria-selected="false">Peta</a>
-            </li>
-            <li class="nav-item submenu">
-                <a class="nav-link" id="pills-contact-tab-nobd" data-toggle="pill" href="#pills-contact-nobd" role="tab" aria-controls="pills-contact-nobd" aria-selected="false">Grafik</a>
-            </li>
-        </ul> 
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link " href="{{route('kemiskinan.ulasan')}}" id="kemiskinanUlasan">Ulasan</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('kemiskinan.graph')}}" id="kemiskinanGrafik">Grafik</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('kemiskinan.map')}}" id="kemiskinanPeta">Peta</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="{{route('kemiskinan.data')}}"  id="kemiskinanData">Data</a>
+    </li>
+  </ul> 
         <br>
         <div class="kemiskinan-wrapper">
-            @yield('kemiskinan-content')
+
         </div>
  
   
@@ -101,8 +104,66 @@
                 }
             });       
     }
+    
     $(document).ready(function(){
+  
+        var wrapper= $('.kemiskinan-wrapper');
+        var ulasan =$('#kemiskinanUlasan');
+        var peta=$('#kemiskinanPeta');
+        var grafik=$('#kemiskinanGrafik');
 
+        function addFocus(me){
+                    ulasan.removeClass('active');
+                    grafik.removeClass('active');
+                    peta.removeClass('active');
+                    me.addClass('active');
+                
+        }
+
+        ulasan.click(function(e){
+            e.preventDefault();
+            var me=$(this)
+            var url=$(this).attr('href');
+            
+            $.ajax({
+                url:url,
+                dataType: 'html',
+                global: false,
+                success: function(response) {
+                   // console.log("Data: " + response);
+                
+                $('.kemiskinan-wrapper').html(response);
+                    //me.css({"background-color": "#007bff", "color":"white"}); 
+                    addFocus($(this));
+                },
+                error:function(e){
+                 alert(e.toString());
+                }
+            });
+        })
+
+
+        grafik.click(function(e){
+            e.preventDefault();
+            var me=$(this)
+            var url=$(this).attr('href');
+            
+            $.ajax({
+                url:url,
+                dataType: 'html',
+                global: false,
+                success: function(response) {
+                   // console.log("Data: " + response);
+                
+                $('.kemiskinan-wrapper').html(response);
+                    //me.css({"background-color": "#007bff", "color":"white"}); 
+                    addFocus($(this));
+                },
+                error:function(e){
+                 alert(e.toString());
+                }
+            });
+        })
     })
 
 
