@@ -2,9 +2,9 @@
 
 @section('styles')
     <style>
-        #map { height: 500px; }
+        #map { max-width: 800px;,margin: auto }
     </style>
-    	<style>#map { width: 800px; height: 500px; }
+    	<style>#map { width: auto; height: 500px; }
             .info {
                 padding: 6px 8px;
                 font: 14px/16px Arial, Helvetica, sans-serif;
@@ -60,21 +60,23 @@
 </ul>
 @endsection
 @section('content')
+<div class="card p-3">
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('kemiskinan.ulasan')}}" id="kemiskinanUlasan">Ulasan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('kemiskinan.graph')}}" id="kemiskinanGrafik">Grafik</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('kemiskinan.map')}}" id="kemiskinanPeta">Peta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="{{route('kemiskinan.data')}}"  id="kemiskinanData">Data</a>
+        </li>
+     </ul> 
+</div>
 
-<ul class="nav nav-pills nav-fill">
-    <li class="nav-item">
-      <a class="nav-link " href="{{route('kemiskinan.ulasan')}}" id="kemiskinanUlasan">Ulasan</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('kemiskinan.graph')}}" id="kemiskinanGrafik">Grafik</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('kemiskinan.map')}}" id="kemiskinanPeta">Peta</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="{{route('kemiskinan.data')}}"  id="kemiskinanData">Data</a>
-    </li>
-  </ul> 
         <br>
         <div class="kemiskinan-wrapper">
 
@@ -120,6 +122,29 @@
                 
         }
 
+        function initialUi(){
+            $.ajax({
+                url:"{{route('kemiskinan.ulasan')}}",
+                dataType: 'html',
+                global: false,
+                success: function(response) {
+                   // console.log("Data: " + response);
+                
+                $('.kemiskinan-wrapper').html(response);
+                    //me.css({"background-color": "#007bff", "color":"white"}); 
+                   
+                    grafik.removeClass('active');
+                    peta.removeClass('active');
+                    ulasan.addClass('active');
+                },
+                error:function(e){
+                 alert(e.toString());
+                }
+            });
+        }
+
+        initialUi();
+
         ulasan.click(function(e){
             e.preventDefault();
             var me=$(this)
@@ -134,7 +159,10 @@
                 
                 $('.kemiskinan-wrapper').html(response);
                     //me.css({"background-color": "#007bff", "color":"white"}); 
-                    addFocus($(this));
+                   
+                    grafik.removeClass('active');
+                    peta.removeClass('active');
+                    me.addClass('active');
                 },
                 error:function(e){
                  alert(e.toString());
@@ -154,15 +182,45 @@
                 global: false,
                 success: function(response) {
                    // console.log("Data: " + response);
-                
+                console.log('success');
                 $('.kemiskinan-wrapper').html(response);
                     //me.css({"background-color": "#007bff", "color":"white"}); 
-                    addFocus($(this));
+                    ulasan.removeClass('active');
+            
+                    peta.removeClass('active');
+                    me.addClass('active');
                 },
                 error:function(e){
-                 alert(e.toString());
+                 alert('e.toString()');
                 }
             });
+        })
+
+        peta.click(function(e){
+            e.preventDefault();
+
+            var me=$(this)
+            var url=$(this).attr('href');
+            
+            $.ajax({
+                url:url,
+                dataType: 'html',
+                global: false,
+                success: function(response) {
+                   // console.log("Data: " + response);
+                console.log('success');
+                $('.kemiskinan-wrapper').html(response);
+                    //me.css({"background-color": "#007bff", "color":"white"}); 
+                    ulasan.removeClass('active');
+            
+                    grafik.removeClass('active');
+                    me.addClass('active');
+                },
+                error:function(e){
+                 alert('e.toString()');
+                }
+            });
+
         })
     })
 

@@ -27,6 +27,10 @@ Route::group(['middleware' => ['auth']], function () {
     
         //graph
         Route::get('/kemiskinan/grafik/garisKemiskinan','KemiskinanDashboardController@graphGarisKemiskinan')->name('graph.gk');
+        Route::get('/kemiskinan/grafik/giniRatio','KemiskinanDashboardController@graphGiniRatioKemiskinan')->name('graph.gini');
+   
+        //map
+        Route::get('/kemiskinan/map/jumlahKemiskinan','KemiskinanDashboardController@mapJumlahKemiskinan')->name('map.jumlah');
     });
     
     

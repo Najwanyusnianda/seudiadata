@@ -30,9 +30,17 @@ class KemiskinanDashboardController extends Controller
         return view('frontend.kemiskinan.graph.garis_kemiskinan',['tahun'=>$tahun,'garis_kemiskinan'=>$garis_kemiskinan]);
     }
 
+    public function graphGiniRatioKemiskinan(){
+        return view('frontend.kemiskinan.graph.gini_ratio');
+    }
 
+///////////////////////////////////////////////////MAP///////////////////////
     public function mapIndex(){
         return view('frontend.kemiskinan.peta_kemiskinan');
+    }
+
+    public function mapJumlahKemiskinan(){
+        return view('frontend.kemiskinan.map.jumlah_miskin_map');
     }
 
     public function ulasanIndex(){

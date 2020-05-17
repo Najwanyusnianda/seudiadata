@@ -13,19 +13,11 @@
     <div class="card-body">
       <table class="table table-condensed">
           <tbody>
-              <tr>
-                <td  width="50%">
+            <tr>
+        
                     <div class="">
                         <canvas id="myChart"></canvas>
                     </div>
-                </td>
-                <td>
-                    <div class="">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex autem a, 
-                        nostrum modi vero neque tenetur perspiciatis architecto nisi sapiente ab odit,
-                         voluptatem earum quam beatae officiis sunt doloribus officia.
-                                                </div>
-                </td>
             </tr>
           </tbody>
       </table>
