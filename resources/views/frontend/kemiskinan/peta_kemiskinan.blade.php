@@ -1,4 +1,4 @@
-<div class="row-md-8">
+<div class="container">
     <div class="card ">
         <div class="card-header">
             <div class="col-4">

@@ -31,7 +31,11 @@ class KemiskinanDashboardController extends Controller
     }
 
     public function graphGiniRatioKemiskinan(){
-        return view('frontend.kemiskinan.graph.gini_ratio');
+        $gini_ratio=[ 0.21, 	 0.26, 	 0.24, 	 0.25, 	 0.26, 	 0.27, 	 0.28, 	 0.25, 	 0.29, 	 0.30, ];
+        $tahun=[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019];
+        return view('frontend.kemiskinan.graph.gini_ratio',
+            ['tahun'=>$tahun,'gini_ratio'=>$gini_ratio]
+        );
     }
 
 ///////////////////////////////////////////////////MAP///////////////////////

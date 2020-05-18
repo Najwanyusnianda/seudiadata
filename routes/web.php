@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth']], function () {
         //map
         Route::get('/kemiskinan/map/jumlahKemiskinan','KemiskinanDashboardController@mapJumlahKemiskinan')->name('map.jumlah');
     });
+
+
+
+    
     
     
  });

@@ -4,28 +4,25 @@
             <h4 class="card-title">Garis Kemiskinan</h4>
             <div class="card-tools">
                 <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
-                <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+                <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span
+                        class="fa fa-sync-alt"></span></button>
                 <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
             </div>
         </div>
         <p class="card-category"> Perkembangan Garis Kemiskinan di Aceh Barat Daya tahun 2010-2019</p>
     </div>
     <div class="card-body">
-      <table class="table table-condensed">
-          <tbody>
-            <tr>
-        
-                    <div class="">
-                        <canvas id="myChart"></canvas>
-                    </div>
-            </tr>
-          </tbody>
-      </table>
 
 
 
-        </div>
-   
+        <canvas id="myChart"></canvas>
+
+
+
+
+
+
+
     </div>
 </div>
 
@@ -45,15 +42,18 @@
 // The data for our dataset
     data: {
     labels: tahun_gk,
-    datasets: [{
+    datasets: [
+        {
         label: 'Garis Kemiskinan',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: gk_data
-    }]
+        data: gk_data,
+        fill:false
+        }
+    ]
 },
 
 // Configuration options go here
-options: {}
-});
+        options: {}
+    });
 </script>

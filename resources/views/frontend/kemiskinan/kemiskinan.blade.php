@@ -2,9 +2,9 @@
 
 @section('styles')
     <style>
-        #map { max-width: 800px;,margin: auto }
+        #map { max-width: 1000px;,margin: auto }
     </style>
-    	<style>#map { width: auto; height: 500px; }
+    	<style>#map { width: auto; height: 800px; }
             .info {
                 padding: 6px 8px;
                 font: 14px/16px Arial, Helvetica, sans-serif;
@@ -49,14 +49,9 @@
         <i class="flaticon-right-arrow"></i>
     </li>
     <li class="nav-item">
-        <a href="#">Tables</a>
+        <a href="#">Kemiskinan</a>
     </li>
-    <li class="separator">
-        <i class="flaticon-right-arrow"></i>
-    </li>
-    <li class="nav-item">
-        <a href="#">Basic Tables</a>
-    </li>
+
 </ul>
 @endsection
 @section('content')
