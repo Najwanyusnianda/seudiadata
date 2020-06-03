@@ -32,6 +32,57 @@ Route::group(['middleware' => ['auth']], function () {
         //map
         Route::get('/kemiskinan/map/jumlahKemiskinan','KemiskinanDashboardController@mapJumlahKemiskinan')->name('map.jumlah');
     });
+    Route::name('ipm.')->group(function () {
+        Route::get('/ipm/index','IpmController@index')->name('index');
+        Route::get('/ipm/ulasan','IpmController@ulasanIndex')->name('ulasan');
+        Route::get('/ipm/map','IpmController@mapIndex')->name('map');
+        Route::get('/ipm/grafik','IpmController@graphIndex')->name('graph');
+        Route::get('/ipm/data','IpmController@dataIndex')->name('data');
+
+    
+        //graph
+        Route::get('/tk/grafik/SeriesIPM','IpmController@graphIPM')->name('graph.series.IPM');
+
+        //map
+ });
+
+
+    Route::name('tk.')->group(function () {
+        Route::get('/tk/index','TenagaKerjaController@index')->name('index');
+        Route::get('/tk/ulasan','TenagaKerjaController@ulasanIndex')->name('ulasan');
+        Route::get('/tk/map','TenagaKerjaController@mapIndex')->name('map');
+        Route::get('/tk/grafik','TenagaKerjaController@graphIndex')->name('graph');
+        Route::get('/tk/data','TenagaKerjaController@dataIndex')->name('data');
+    
+        //graph
+        Route::get('/tk/grafik/SeriesTPAK','TenagaKerjaController@graphSeriesTPAK')->name('graph.series.tpak');
+        Route::get('/tk/grafik/SeriesTPT','TenagaKerjaController@graphSeriesTPT')->name('graph.series.tpt');
+   
+        //map
+        //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
+    });
+
+    Route::name('pdrb_lp.')->group(function () {
+        Route::get('/pdrb_lp/index','PdrbLpController@index')->name('index');
+        Route::get('/pdrb_lp/ulasan','PdrbLpController@ulasanIndex')->name('ulasan');
+        Route::get('/pdrb_lp/map','PdrbLpController@mapIndex')->name('map');
+        Route::get('/pdrb_lp/grafik','PdrbLpController@graphIndex')->name('graph');
+        Route::get('/pdrb_lp/data','PdrbLpController@dataIndex')->name('data');
+    
+        //graph
+        Route::get('/pdrb_lp/grafik/pdrb_lp_adhb_series','PdrbLpController@graphSeriesPDRB_ADHB')->name('graph.series.pdrb_adhb');
+        Route::get('/pdrb_lp/grafik/pdrb_lp_adhk_series','PdrbLpController@graphSeriesPDRB_ADHK')->name('graph.series.pdrb_adhk');
+        Route::get('/pdrb_lp/grafik/pdrb_lp_pie','PdrbLpController@graphPiePDRB')->name('graph.pie.pdrb');
+        Route::get('/pdrb_lp/grafik/pdrb_lp_bar_distribution','PdrbLpController@graphBarPDRBDistribusi')->name('graph.bar.pdrb_distribusi');
+        Route::get('/pdrb_lp/grafik/pdrb_lp_pertumbuhan_ekonomi','PdrbLpController@graphPertumbuhanEkonomi')->name('graph.series.pertumbuhan_ekonomi');
+        Route::get('/pdrb_lp/grafik/pdrb_lp_pertumbuhan_implisit','PdrbLpController@graphPertumbuhanImplisit')->name('graph.series.implisit');
+   
+        //map
+        //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
+    });
+
+
+    
 
 
 

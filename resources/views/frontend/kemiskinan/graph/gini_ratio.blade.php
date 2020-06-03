@@ -15,7 +15,7 @@
 
 
 <script>
-    alert("woe")
+    //alert("woe")
     var gk_data = @json($gini_ratio, JSON_PRETTY_PRINT);
     var tahun_gk = @json($tahun, JSON_PRETTY_PRINT);
     //console.log(gk_data);

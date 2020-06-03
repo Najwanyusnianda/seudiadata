@@ -56,10 +56,7 @@
 @endsection
 @section('content')
 <div class="card p-3">
-    <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link " href="{{route('kemiskinan.ulasan')}}" id="kemiskinanUlasan">Ulasan</a>
-        </li>
+    <ul class="nav nav-pills nav-primary">
         <li class="nav-item">
           <a class="nav-link" href="{{route('kemiskinan.graph')}}" id="kemiskinanGrafik">Grafik</a>
         </li>
@@ -74,7 +71,7 @@
 
         <br>
         <div class="kemiskinan-wrapper">
-
+            
         </div>
  
   

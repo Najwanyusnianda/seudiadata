@@ -61,32 +61,48 @@
                     </span>
                     <h4 class="text-section">Kategori</h4>
                 </li>
-                <li class="nav-item {{Request::is('kemiskinan/*')? 'submenu active' : ''}} ">
+                <li class="nav-item {{Request::is('kemiskinan/*')? 'submenu active' :   
+                (Request::is('ipm/*')? 'submenu active' :
+                (Request::is('tk/*')? 'submenu active' :
+                ''))}} ">
                     <a data-toggle="collapse" href="#sosial">
                         <i class="fas fa-layer-group"></i>
                         <p>Sosial Kependudukan</p>
                         <span class="caret"></span>
                     </a>
-                `   <div class="collapse {{Request::is('kemiskinan/*')? 'show' : ''}} " id="sosial">
+                `   <div class="collapse {{Request::is('kemiskinan/*')? 'show' :                 
+                (Request::is('ipm/*')? 'show' :
+                (Request::is('tk/*')? 'show' :
+                ''))}} " id="sosial">
                         <ul class="nav nav-collapse ">
                             <li class="{{Request::is('kemiskinan/*')? 'active' : ''}}">
                             <a href="{{route('kemiskinan.index')}}">
                                     <span class="sub-item">Kemiskinan</span>
                                 </a>
                             </li>
+                            <li class="{{Request::is('ipm/*')? 'active' : ''}}">
+                                <a href="{{route('ipm.index')}}">
+                                        <span class="sub-item">IPM</span>
+                                    </a>
+                            </li>
+                            <li class="{{Request::is('tk/*')? 'active' : ''}}">
+                                <a href="{{route('tk.index')}}">
+                                        <span class="sub-item">Tenaga Kerja</span>
+                                    </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item {{Request::is('pdbn/*')? 'submenu active' : ''}} ">
+                <li class="nav-item {{Request::is('pdrb_lp/*')? 'submenu active' : ''}} ">
                     <a data-toggle="collapse" href="#ekonomi">
                         <i class="fas fa-layer-group"></i>
                         <p>Ekonomi dan Perdagangan</p>
                         <span class="caret"></span>
                     </a>
-                `   <div class="collapse {{Request::is('pdb/*')? 'show' : ''}} " id="ekonomi">
+                `   <div class="collapse {{Request::is('pdrb_lp/*')? 'show' : ''}} " id="ekonomi">
                         <ul class="nav nav-collapse ">
-                            <li class="{{Request::is('pdb/*')? 'active' : ''}}">
-                            <a href="{{route('kemiskinan.index')}}">
+                            <li class="{{Request::is('pdrb_lp/*')? 'active' : ''}}">
+                            <a href="{{route('pdrb_lp.index')}}">
                                     <span class="sub-item">PDRB</span>
                                 </a>
                             </li>
