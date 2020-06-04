@@ -65,7 +65,7 @@ class PdrbLpController extends Controller
     public function graphBarPDRBDistribusi(){
         $series_tpak=[58.90,64.25,54.25,58.14,55.30,62.26,62.26,62.01,63.72,58.28];
         $tahun=[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019];
-        return view('frontend.pdrb_lp.graph.series_tpak',
+        return view('frontend.pdrb_lp.graph.bar_distPDRB',
         ['tahun'=>$tahun,'series_tpak'=>$series_tpak]);
     }
 }
