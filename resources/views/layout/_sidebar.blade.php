@@ -103,8 +103,13 @@
                         <ul class="nav nav-collapse ">
                             <li class="{{Request::is('pdrb_lp/*')? 'active' : ''}}">
                             <a href="{{route('pdrb_lp.index')}}">
-                                    <span class="sub-item">PDRB</span>
+                                    <span class="sub-item">PDRB Lapangan Usaha</span>
                                 </a>
+                            </li>
+                            <li class="{{Request::is('pdrb_pe/*')? 'active' : ''}}">
+                                <a href="#">
+                                        <span class="sub-item">PDRB Pengeluaran</span>
+                                    </a>
                             </li>
                         </ul>
                     </div>

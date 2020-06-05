@@ -18,6 +18,9 @@
 Route::group(['middleware' => ['auth']], function () {
     //
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/home', function () {
+        return redirect()->route('home');
+    });
     Route::name('kemiskinan.')->group(function () {
         Route::get('/kemiskinan/index','KemiskinanDashboardController@index')->name('index');
         Route::get('/kemiskinan/ulasan','KemiskinanDashboardController@ulasanIndex')->name('ulasan');
