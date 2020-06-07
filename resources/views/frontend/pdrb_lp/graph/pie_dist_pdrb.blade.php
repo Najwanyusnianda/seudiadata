@@ -3,7 +3,7 @@
     <div class="card col-md-12 col-12">
         <div class="card-header">
             <div class="card-head-row card-tools-still-right">
-                <h4 class="card-title">Tingkat Pengangguran Terbuka</h4>
+                <h4 class="card-title">Distribusi PDRB Lapangan Usaha</h4>
                 <div class="card-tools">
                     <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
                     <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span
@@ -58,8 +58,8 @@
 
 
 <script>
-    var gk_data=@json($series_tpt,JSON_PRETTY_PRINT);
-    var tahun_gk=@json($tahun,JSON_PRETTY_PRINT);
+    var gk_data=@json($data_dist_pdrb,JSON_PRETTY_PRINT);
+    var label_alias=@json($label_alias,JSON_PRETTY_PRINT);
 
     //gk_data=JSON.parse(gk_data);
     
@@ -68,18 +68,18 @@
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
 // The type of chart we want to create
-        type: 'line',
+        type: 'pie',
 
 // The data for our dataset
     data: {
-    labels: tahun_gk,
+    labels: label_alias,
     datasets: [
         {
-        label: 'Perkembangan TPAK',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+       // label: 'Perkembangan TPAK',
+       // backgroundColor: 'rgb(255, 99, 132)',
+        //borderColor: 'rgb(255, 99, 132)',
         data: gk_data,
-        fill:false
+
         }
     ]
 },

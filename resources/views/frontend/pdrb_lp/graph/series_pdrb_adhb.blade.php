@@ -3,7 +3,7 @@
     <div class="card col-md-12 col-12">
         <div class="card-header">
             <div class="card-head-row card-tools-still-right">
-                <h4 class="card-title">Tingkat Pengangguran Terbuka</h4>
+                <h4 class="card-title">PDRB - Atas Dasar Harga Berlaku</h4>
                 <div class="card-tools">
                     <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
                     <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span
@@ -11,7 +11,7 @@
                     <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
                 </div>
             </div>
-            <p class="card-category"> Perkembangan Tingkat Pengangguran Terbuka 2010-2019</p>
+            <p class="card-category"> Perkembangan PDRB Atas Harga Berlaku -2019</p>
         </div>
         <div class="card-body">
     
@@ -58,7 +58,7 @@
 
 
 <script>
-    var gk_data=@json($series_tpt,JSON_PRETTY_PRINT);
+    var gk_data=@json($series_pdrb_adhb,JSON_PRETTY_PRINT);
     var tahun_gk=@json($tahun,JSON_PRETTY_PRINT);
 
     //gk_data=JSON.parse(gk_data);
@@ -75,11 +75,11 @@
     labels: tahun_gk,
     datasets: [
         {
-        label: 'Perkembangan TPAK',
+        label: 'Nilai PDRB',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: gk_data,
-        fill:false
+        fill:true
         }
     ]
 },

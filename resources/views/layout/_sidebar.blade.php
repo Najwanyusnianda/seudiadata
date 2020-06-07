@@ -70,7 +70,7 @@
                         <p>Sosial Kependudukan</p>
                         <span class="caret"></span>
                     </a>
-                `   <div class="collapse {{Request::is('kemiskinan/*')? 'show' :                 
+                   <div class="collapse {{Request::is('kemiskinan/*')? 'show' :                 
                 (Request::is('ipm/*')? 'show' :
                 (Request::is('tk/*')? 'show' :
                 ''))}} " id="sosial">
@@ -99,7 +99,7 @@
                         <p>Ekonomi dan Perdagangan</p>
                         <span class="caret"></span>
                     </a>
-                `   <div class="collapse {{Request::is('pdrb_lp/*')? 'show' : ''}} " id="ekonomi">
+                   <div class="collapse {{Request::is('pdrb_lp/*')? 'show' : ''}} " id="ekonomi">
                         <ul class="nav nav-collapse ">
                             <li class="{{Request::is('pdrb_lp/*')? 'active' : ''}}">
                             <a href="{{route('pdrb_lp.index')}}">
@@ -109,6 +109,34 @@
                             <li class="{{Request::is('pdrb_pe/*')? 'active' : ''}}">
                                 <a href="#">
                                         <span class="sub-item">PDRB Pengeluaran</span>
+                                    </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Administrasi</h4>
+                </li>
+                <li class="nav-item {{Request::is('pdrb_lp/*')? 'submenu active' : ''}} ">
+                    <a data-toggle="collapse" href="#ekonomi">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Ekonomi dan Perdagangan</p>
+                        <span class="caret"></span>
+                    </a>
+                   <div class="collapse " id="Data Management">
+                        <ul class="nav nav-collapse ">
+                            <li class="">
+                            <a href="#">
+                                    <span class="sub-item">Input Data</span>
+                                </a>
+                            </li>
+                            <li class="#">
+                                <a href="#">
+                                        <span class="sub-item">Kelola Data</span>
                                     </a>
                             </li>
                         </ul>

@@ -9,11 +9,11 @@
                         <label for="indikatorSelect">Indikator</label>
                         <select class="form-control" id="indikatorSelect">
                            <option value="{{route('pdrb_lp.graph.series.pdrb_adhb')}}">PDRB ADHB</option>
-                         <option value="{{route('pdrb_lp.graph.series.pdrb_adhk')}}">PDRB ADHK</option>
+                         <option value="{{route('pdrb_lp.graph.series.pdrb_adhk')}}"> PDRB ADHK</option>
                          <option value="{{route('pdrb_lp.graph.pie.pdrb')}}">Distribusi Pie PDRB</option>
                          <option value="{{route('pdrb_lp.graph.series.pertumbuhan_ekonomi')}}">Pertumbuhan Ekonomi</option>
                          <option value="{{route('pdrb_lp.graph.series.implisit')}}">Pertumbuhan Implisit</option>
-                         \<option value="{{route('pdrb_lp.graph.bar.pdrb_distribusi')}}">Distribusi Bar PDRB</option>
+                         \<option value="{{route('pdrb_lp.graph.bar.pdrb_distribusi')}}" selected>Distribusi Bar PDRB</option>
                         </select>
                     </div>
                 </div>
