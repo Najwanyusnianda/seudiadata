@@ -89,7 +89,9 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::name('data.')->group(function () {
         //input data
-        Route::get('/data_management/input_data/index','DataSourceController@index');
+        Route::get('/data_management/input_data/index','DataSourceController@index')->name('index');
+        Route::get('/data_management/input_data/index_input/{indikator_id}','DataSourceController@inputIndex')->name('input.index');
+        Route::get('/data_management/input_data/index/{subject_id}/indikator','DataSourceController@indicatorIndex')->name('indicatorIndex');
         Route::get('/data_management/input_data/create','DataSourceController@create');
         Route::post('/data_management/input_data/store','DataSourceController@store');
         Route::post('/data_management/input_data/update','DataSourceController@update');

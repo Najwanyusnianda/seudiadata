@@ -1,0 +1,37 @@
+[
+ {
+   "subject_id": 1,
+   "indikator_id": 1,
+   "indikator": "Jumlah Penduduk",
+   "ulasan": "",
+   "data": ""
+ },
+ {
+   "subject_id": 1,
+   "indikator_id": 2,
+   "indikator": "Garis Kemiskinan",
+   "ulasan": "",
+   "data": ""
+ },
+ {
+   "subject_id": 1,
+   "indikator_id": 3,
+   "indikator": "Jumlah Penduduk Miskin",
+   "ulasan": "",
+   "data": ""
+ },
+ {
+   "subject_id": 1,
+   "indikator_id": 4,
+   "indikator": "Persentase Angka Kemiskinan",
+   "ulasan": "",
+   "data": ""
+ },
+ {
+   "subject_id": 1,
+   "indikator_id": 5,
+   "indikator": "Gini Rasio",
+   "ulasan": "",
+   "data": ""
+ }
+]

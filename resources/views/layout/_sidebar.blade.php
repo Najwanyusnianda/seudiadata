@@ -38,6 +38,35 @@
                     </div>
                 </div>
             </div>-->
+            <div class="user">
+                <div class="avatar-sm float-left mr-2">
+                <img src="{{asset('img/avatar/avatar-1.png')}}" alt="..." class="avatar-img rounded-circle">
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                        <span>
+                            {{auth()->user()->name ?? '' }}
+                        <span class="user-level">
+                            {{auth()->user()->typeId=1 ? 'superadmin' :
+                            (auth()->user()->typeId=2 ? 'admin' :'operator')}}
+                        </span>
+                            <span class="caret"></span>
+                        </span>
+                    </a>
+                    <div class="clearfix"></div>
+
+                    <div class="collapse in" id="collapseExample">
+                        <ul class="nav">
+                            <li>
+                                <a href="#profile">
+                                    <span class="link-collapse">Logout</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <ul class="nav nav-primary">
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
@@ -48,7 +77,7 @@
                     <div class="collapse" id="dashboard">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="../../demo1/index.html">
+                                <a href="#">
                                     <span class="sub-item">Dashboard 1</span>
                                 </a>
                             </li>
@@ -66,8 +95,8 @@
                 (Request::is('tk/*')? 'submenu active' :
                 ''))}} ">
                     <a data-toggle="collapse" href="#sosial">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Sosial Kependudukan</p>
+                        <i class="fas fa-table"></i>
+                        <p>  <small>Sosial & Kependudukan</small></p>
                         <span class="caret"></span>
                     </a>
                    <div class="collapse {{Request::is('kemiskinan/*')? 'show' :                 
@@ -95,8 +124,8 @@
                 </li>
                 <li class="nav-item {{Request::is('pdrb_lp/*')? 'submenu active' : ''}} ">
                     <a data-toggle="collapse" href="#ekonomi">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Ekonomi dan Perdagangan</p>
+                        <i class="fas fa-table"></i>
+                        <p><small> Ekonomi & Perdagangan</small></p>
                         <span class="caret"></span>
                     </a>
                    <div class="collapse {{Request::is('pdrb_lp/*')? 'show' : ''}} " id="ekonomi">
@@ -121,24 +150,51 @@
                     </span>
                     <h4 class="text-section">Administrasi</h4>
                 </li>
-                <li class="nav-item {{Request::is('pdrb_lp/*')? 'submenu active' : ''}} ">
-                    <a data-toggle="collapse" href="#ekonomi">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Ekonomi dan Perdagangan</p>
+                <li class="nav-item {{Request::is('data_management/*')? 'submenu active' : ''}} ">
+                    <a data-toggle="collapse" href="#data-management">
+                        <i class="fas fa-file-alt"></i>
+                        <p>Manajemen Data</p>
                         <span class="caret"></span>
                     </a>
-                   <div class="collapse " id="Data Management">
+                   <div class="collapse {{Request::is('data_management/*')? 'show' : ''}} " id="data-management">
                         <ul class="nav nav-collapse ">
-                            <li class="">
+                           <!-- <li class="">
                             <a href="#">
                                     <span class="sub-item">Input Data</span>
                                 </a>
-                            </li>
-                            <li class="#">
-                                <a href="#">
+                            </li>-->
+                            <li class={{Request::is('data_management/*')? 'active' : ''}}">
+                            <a href="{{route('data.index')}}">
                                         <span class="sub-item">Kelola Data</span>
                                     </a>
                             </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item {{Request::is('user_management/*')? 'submenu active' : ''}} ">
+                    <a data-toggle="collapse" href="#user-management">
+                        <i class="fas fa-users-cog"></i>
+                        <p>Manajemen User</p>
+                        <span class="caret"></span>
+                    </a>
+                   <div class="collapse " id="user-management">
+                        <ul class="nav nav-collapse ">
+                           <!-- <li class="">
+                            <a href="#">
+                                    <span class="sub-item">Input Data</span>
+                                </a>
+                            </li>-->
+                            <li class="#">
+                                    <a href="{{route('data.index')}}">
+                                        <span class="sub-item">Tambah User</span>
+                                    </a>
+                            </li>
+                            <li class="#">
+                                <a href="{{route('data.index')}}">
+                                    <span class="sub-item">Kelola User</span>
+                                </a>
+                        </li>
                         </ul>
                     </div>
                 </li>

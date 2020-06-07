@@ -33,7 +33,7 @@
                     </div>
                 </form>
             </div>
-            <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+            <!--<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item toggle-nav-search hidden-caret">
                     <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
                         <i class="fa fa-search"></i>
@@ -254,7 +254,7 @@
                         </div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar ui-draggable ui-draggable-handle"></div></div></div></div>
                     </ul>
                 </li>
-            </ul>
+            </ul>-->
         </div>
     </nav>
     <!-- End Navbar -->
