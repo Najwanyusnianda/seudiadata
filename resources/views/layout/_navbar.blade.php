@@ -5,6 +5,7 @@
         <!--<a href="index.html" class="logo">
             <img src="../assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
         </a>-->
+        <span class="font-weight-bold" style="color:white">SeudiaData</span>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="icon-menu"></i>
@@ -22,7 +23,7 @@
         
         <div class="container-fluid">
             <div class="collapse" id="search-nav">
-                <form class="navbar-left navbar-form nav-search mr-md-3">
+               <!-- <form class="navbar-left navbar-form nav-search mr-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <button type="submit" class="btn btn-search pr-1">
@@ -31,7 +32,7 @@
                         </div>
                         <input type="text" placeholder="Search ..." class="form-control">
                     </div>
-                </form>
+                </form>-->
             </div>
             <!--<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item toggle-nav-search hidden-caret">

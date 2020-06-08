@@ -49,7 +49,7 @@
                                 {{$indikator->indikator}}
                             </td>
                             <td>
-                            <a href="{{route('data.input.index',[$indikator->id])}}" class="btn btn-info">    
+                            <a href="{{route('data.input.index',[$indikator->id])}}" class="btn btn-info btn-sm">    
                                 <span class="btn-label">
                                     <i class="far fa-edit"></i> Update Data
                                 </span>

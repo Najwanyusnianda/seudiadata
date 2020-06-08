@@ -163,11 +163,12 @@
                                     <span class="sub-item">Input Data</span>
                                 </a>
                             </li>-->
-                            <li class={{Request::is('data_management/*')? 'active' : ''}}">
-                            <a href="{{route('data.index')}}">
+                            <li class="{{Request::is('data_management/*')? 'active' : ''}}">
+                                     <a href="{{route('data.index')}}" >
                                         <span class="sub-item">Kelola Data</span>
                                     </a>
                             </li>
+                            
                         </ul>
                     </div>
                 </li>

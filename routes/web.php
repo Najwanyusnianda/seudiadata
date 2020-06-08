@@ -94,8 +94,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data_management/input_data/index/{subject_id}/indikator','DataSourceController@indicatorIndex')->name('indicatorIndex');
         Route::get('/data_management/input_data/create','DataSourceController@create');
         Route::post('/data_management/input_data/store','DataSourceController@store');
-        Route::post('/data_management/input_data/update','DataSourceController@update');
+        Route::post('/data_management/input_data/update','DataSourceController@update')->name('update');
         Route::post('/data_management/input_data/delete','DataSourceController@delete');
+    });
+
+    Route::name('user.')->group(function () {
+      
     });
 
 

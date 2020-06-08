@@ -76,10 +76,10 @@
     datasets: [
         {
         label: 'Perkembangan TPAK',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: '#2980b9',
+        borderColor: '#2980b9',
         data: gk_data,
-        fill:false
+        fill:true
         }
     ]
 },
