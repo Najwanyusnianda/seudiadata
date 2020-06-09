@@ -16,7 +16,7 @@ class SubjectTableSeeder extends Seeder
         //
         DB::table('subjects')->delete();
 
-        $subject=['kemiskinan','ipm','tenaga kerja','pdrb lapangan usaha','pdrb pengeluaran'];
+        $subject=['Kemiskinan','IPM','Tenaga Kerja','PDRB Lapangan Usaha','PDRB Pengeluaran'];
 
         foreach ($subject as $obj) {
             Subject::create(array(

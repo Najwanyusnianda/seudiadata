@@ -58,7 +58,7 @@
 <div class="card p-3">
     <ul class="nav nav-pills nav-primary">
         <li class="nav-item">
-          <a class="nav-link" href="{{route('content.graph')}}" id="contentGrafik">Grafik</a>
+          <a class="nav-link" href="{{route('content.graph',['subject_id'=>$subject_id])}}" id="contentGrafik">Grafik</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('content.map')}}" id="contentPeta">Peta</a>

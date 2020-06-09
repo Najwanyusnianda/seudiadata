@@ -40,18 +40,18 @@ class DataSourceController extends Controller
 
       
         if($indikator_id != null){
-   
+
             $indikator=DataIndikator::find($indikator_id);
          
             if ($request->file('data_file')) {
 
-                $rows=Excel::import(new DataIndikatorImport($indikator_id,$request->ulasan), request()->file('data_file'));
+                $rows=Excel::import(new DataIndikatorImport($indikator_id,$request->ulasan,$request->title,$request->subtitle), request()->file('data_file'));
           
                // $indikator->update([
               //      'ulasan'=>$request->ulasan,
                // ]);
             
-                return redirect()->back();
+               return redirect()->route('data.indicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Di Update');   
             }else{
                 //bila tidak upload file data
             }

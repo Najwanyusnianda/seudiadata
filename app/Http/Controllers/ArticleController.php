@@ -18,20 +18,42 @@ class ArticleController extends Controller
     }
 
     public function graphIndex($subject_id){
-        $subject_indikator=DataIndikator::where('id',$subject_id)
-        ->leftJoin('subjects','data_indikators.subject_id','=','subjects.id')
+        $subject_indikator=DataIndikator::where('data_indikators.subject_id',$subject_id)
+        ->rightJoin('subjects','data_indikators.subject_id','=','subjects.id')
         ->select('data_indikators.id AS indikator_id','data_indikators.indikator AS indikator_item','subjects.subject_name AS subject_name','subjects.id AS subject_id')
         ->get();
+        //dd($subject_indikator);
         return view('frontend.content.content_graph_wrapper',compact('subject_indikator'));
     }
 
-    public function grapContent($indikator_id){
-        $dt=DataIndikator::find($idid);
-        $ulasan=$dt->ulasan;
-        $data=$dt->data;
-        $data=json_decode($data,true);
-        $tahun=[];
-        $df=[];
+    public function graphContent($indikator_id){
+   
+        $dt=DataIndikator::find($indikator_id);
+        if($dt->graph_type=="Garis"){
+            $ulasan=$dt->ulasan;
+            $data=$dt->data;
+            $data=json_decode($data,true);
+            $tahun=[];
+            $df=[];
+    
+            foreach($data as $d){
+                $tahun[]=$d[0];
+                $df[]=$d[1];
+              }
+
+              return view('frontend.content.graph.graph_vis',
+              ['tahun'=>$tahun,'data'=>$df,'content_dt'=>$dt]);
+
+        }elseif($dt->graph_type=="Batang"){
+
+        }elseif($dt->graph_type=="pie_chart"){
+
+
+        }
+
+          
+
+    
     }
 
     

@@ -105,17 +105,17 @@
                 ''))}} " id="sosial">
                         <ul class="nav nav-collapse ">
                             <li class="{{Request::is('kemiskinan/*')? 'active' : ''}}">
-                            <a href="{{route('kemiskinan.index')}}">
+                            <a href="{{route('content.index',['subject_id'=>1])}}">
                                     <span class="sub-item">Kemiskinan</span>
                                 </a>
                             </li>
                             <li class="{{Request::is('ipm/*')? 'active' : ''}}">
-                                <a href="{{route('ipm.index')}}">
+                                <a href="{{route('content.index',['subject_id'=>2])}}">
                                         <span class="sub-item">IPM</span>
                                     </a>
                             </li>
                             <li class="{{Request::is('tk/*')? 'active' : ''}}">
-                                <a href="{{route('tk.index')}}">
+                                <a href="{{route('content.index',['subject_id'=>3])}}">
                                         <span class="sub-item">Tenaga Kerja</span>
                                     </a>
                             </li>
@@ -131,12 +131,12 @@
                    <div class="collapse {{Request::is('pdrb_lp/*')? 'show' : ''}} " id="ekonomi">
                         <ul class="nav nav-collapse ">
                             <li class="{{Request::is('pdrb_lp/*')? 'active' : ''}}">
-                            <a href="{{route('pdrb_lp.index')}}">
+                            <a href="{{route('content.index',['subject_id'=>4])}}">
                                     <span class="sub-item">PDRB Lapangan Usaha</span>
                                 </a>
                             </li>
                             <li class="{{Request::is('pdrb_pe/*')? 'active' : ''}}">
-                                <a href="#">
+                                <a href="{{route('content.index',['subject_id'=>5])}}">
                                         <span class="sub-item">PDRB Pengeluaran</span>
                                     </a>
                             </li>

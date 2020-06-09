@@ -12,15 +12,18 @@ class DataIndikatorImport implements  ToCollection
 
 protected $id;
 
- function __construct($id,$ulasan) {
+ function __construct($id,$ulasan,$title,$subtitle) {
         $this->id = $id;
         $this->ulasan= $ulasan;
+        $this->title=$title;
+        $this->subtitle=$subtitle;
  }
 
     public function collection(Collection $rows)
     {
         $indikator_id=$this->id;
         $ulasan=$this->ulasan;
+
         $data=$rows;
         $data=json_encode($data,JSON_FORCE_OBJECT);
         $indikator=DataIndikator::find($indikator_id);
@@ -29,8 +32,10 @@ protected $id;
             $indikator->update([
                 'data'=>$data,
                 'ulasan'=>$ulasan,
+                'title'=>$this->title,
+                'subtitle'=>$this->subtitle
             ]);
 
-        return redirect()->back();    
+        return redirect()->route('data.indicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Di Update');   
     }
 }

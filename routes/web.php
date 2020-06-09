@@ -86,15 +86,15 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::name('content.')->group(function () {
+        Route::get('/content/index/{subject_id}','ArticleController@index')->name('index');
         Route::get('/content/ulasan','ArticleController@ulasanIndex')->name('ulasan');
         Route::get('/content/map','ArticleController@mapIndex')->name('map');
-        Route::get('/content/grafik','ArticleController@graphIndex')->name('graph');
+        Route::get('/content/grafik/{subject_id}','ArticleController@graphIndex')->name('graph');
         Route::get('/content/data','ArticleController@dataIndex')->name('data');
     
         //graph
-        Route::get('/tk/grafik/SeriesTPAK','TenagaKerjaController@graphSeriesTPAK')->name('graph.series.tpak');
-        Route::get('/tk/grafik/SeriesTPT','TenagaKerjaController@graphSeriesTPT')->name('graph.series.tpt');
-   
+        Route::get('/content/grafik/indikator/{indikator_id}','ArticleController@graphContent')->name('graph.content');
+        
         //map
         //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
     });
