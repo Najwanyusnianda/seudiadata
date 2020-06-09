@@ -21,6 +21,7 @@ class IndicatorTableSeeder extends Seeder
                 'subject_id'=>$obj->subject_id,
                 'id'=>$obj->indikator_id,
                 'indikator'=>$obj->indikator,
+                'graph_type'=>$obj->graph_type
             ));
 
         }

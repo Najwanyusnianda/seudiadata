@@ -12,7 +12,7 @@
                     <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
                 </div>
             </div>
-            <p class="card-category"> Perkembangan Garis Kemiskinan di Aceh Barat Daya tahun 2010-2019</p>
+            <p class="card-category"> Perkembangan Garis Kemiskinan di Aceh Barat Daya tahun 2015-2019</p>
         </div>
         <div class="card-body">
     
@@ -62,7 +62,7 @@
     var gk_data=@json($garis_kemiskinan,JSON_PRETTY_PRINT);
     var tahun_gk=@json($tahun,JSON_PRETTY_PRINT);
 
-    gk_data=JSON.parse(gk_data);
+    //gk_data=JSON.parse(gk_data);
     
     //tahun_gk=JSON.parse(tahun_gk);
     
@@ -80,7 +80,7 @@
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: gk_data,
-        fill:false
+        fill:true
         }
     ]
 },

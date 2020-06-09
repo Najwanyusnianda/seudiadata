@@ -187,7 +187,7 @@
                                 </a>
                             </li>-->
                             <li class="#">
-                                    <a href="{{route('data.index')}}">
+                                    <a href="{{route('user.index')}}">
                                         <span class="sub-item">Tambah User</span>
                                     </a>
                             </li>

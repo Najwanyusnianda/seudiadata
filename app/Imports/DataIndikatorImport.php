@@ -3,20 +3,34 @@
 namespace App\Imports;
 
 use App\DataIndikator;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToCollection;
 
-class DataIndikatorImport implements ToModel
+
+class DataIndikatorImport implements  ToCollection
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
+
+protected $id;
+
+ function __construct($id,$ulasan) {
+        $this->id = $id;
+        $this->ulasan= $ulasan;
+ }
+
+    public function collection(Collection $rows)
     {
-        return new DataIndikator([
-            //
-            'data' => json_encode($row),
-        ]);
+        $indikator_id=$this->id;
+        $ulasan=$this->ulasan;
+        $data=$rows;
+        $data=json_encode($data,JSON_FORCE_OBJECT);
+        $indikator=DataIndikator::find($indikator_id);
+       
+        $indikator=DataIndikator::find($indikator_id);
+            $indikator->update([
+                'data'=>$data,
+                'ulasan'=>$ulasan,
+            ]);
+
+        return redirect()->back();    
     }
 }

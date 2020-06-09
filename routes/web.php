@@ -85,7 +85,19 @@ Route::group(['middleware' => ['auth']], function () {
         //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
     });
 
-
+    Route::name('content.')->group(function () {
+        Route::get('/content/ulasan','ArticleController@ulasanIndex')->name('ulasan');
+        Route::get('/content/map','ArticleController@mapIndex')->name('map');
+        Route::get('/content/grafik','ArticleController@graphIndex')->name('graph');
+        Route::get('/content/data','ArticleController@dataIndex')->name('data');
+    
+        //graph
+        Route::get('/tk/grafik/SeriesTPAK','TenagaKerjaController@graphSeriesTPAK')->name('graph.series.tpak');
+        Route::get('/tk/grafik/SeriesTPT','TenagaKerjaController@graphSeriesTPT')->name('graph.series.tpt');
+   
+        //map
+        //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
+    });
     
     Route::name('data.')->group(function () {
         //input data
@@ -99,7 +111,11 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::name('user.')->group(function () {
-      
+      Route::get('/user_management/index', 'UserController@index')->name('index');
+      Route::get('/user_management/create', 'UserController@create')->name('create');
+      Route::post('/user_management/store', 'UserController@store')->name('store');
+      Route::get('/user_management/update', 'UserController@update')->name('update');
+      Route::get('/user_management/updateStore', 'UserController@updateStore')->name('storeUpdate');
     });
 
 

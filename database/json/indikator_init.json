@@ -2,36 +2,177 @@
  {
    "subject_id": 1,
    "indikator_id": 1,
-   "indikator": "Jumlah Penduduk",
+   "indikator": "Jumlah Penduduk Miskin",
    "ulasan": "",
-   "data": ""
+   "data": "",
+   "graph_type": "Garis"
  },
  {
    "subject_id": 1,
    "indikator_id": 2,
    "indikator": "Garis Kemiskinan",
    "ulasan": "",
-   "data": ""
+   "data": "",
+   "graph_type": "Garis"
  },
  {
    "subject_id": 1,
    "indikator_id": 3,
-   "indikator": "Jumlah Penduduk Miskin",
+   "indikator": "Jumlah Penduduk ",
    "ulasan": "",
-   "data": ""
+   "data": "",
+   "graph_type": "pie_chart"
  },
  {
    "subject_id": 1,
    "indikator_id": 4,
    "indikator": "Persentase Angka Kemiskinan",
    "ulasan": "",
-   "data": ""
+   "data": "",
+   "graph_type": "Garis"
  },
  {
    "subject_id": 1,
    "indikator_id": 5,
    "indikator": "Gini Rasio",
    "ulasan": "",
-   "data": ""
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 2,
+   "indikator_id": 6,
+   "indikator": "Indeks Pembangunan Manusia",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 3,
+   "indikator_id": 7,
+   "indikator": "Tingkat Partisipasi Angkatan Kerja (TPAK)",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 3,
+   "indikator_id": 8,
+   "indikator": "Tingkat Pengangguran Terbuka (TPT)",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 9,
+   "indikator": "Nilai PDRB ADHB",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 10,
+   "indikator": "Nilai PDRB ADHK",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Batang"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 11,
+   "indikator": "Distribusi PDRB Tahun 2019",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 12,
+   "indikator": "Pertumbuhan Ekonomi",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 13,
+   "indikator": "Laju Pertumbuhan Indeks Implisit",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 14,
+   "indikator": "Nilai Indeks Implisit",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 4,
+   "indikator_id": 15,
+   "indikator": "Analisis Potensi Sektoral",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 16,
+   "indikator": "Nilai PDRB ADHB",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 17,
+   "indikator": "Nilai PDRB ADHK",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 18,
+   "indikator": "Distribusi PDRB Tahun 2019",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Batang"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 19,
+   "indikator": "Pertumbuhan Ekonomi",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 20,
+   "indikator": "Laju Pertumbuhan Indeks Implisit",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 21,
+   "indikator": "Nilai Indeks Implisit",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
+ },
+ {
+   "subject_id": 5,
+   "indikator_id": 22,
+   "indikator": "ICOR PDRB PENGELUARAN",
+   "ulasan": "",
+   "data": "",
+   "graph_type": "Garis"
  }
 ]

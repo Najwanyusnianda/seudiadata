@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\DataIndikator;
+use App\Imports\DataIndikatorImport;
+use Excel;
 
 class DataSourceController extends Controller
 {
@@ -32,17 +34,24 @@ class DataSourceController extends Controller
     }
 
     public function update(Request $request){
+    
         
         $indikator_id=$request->indikator_id;
-        if($indikators != null){
+
+      
+        if($indikator_id != null){
+   
             $indikator=DataIndikator::find($indikator_id);
-
+         
             if ($request->file('data_file')) {
-                Excel::import(new DataIndikatorImport(), request()->file('data_file'));
 
-                $indikator->update([
-                    'ulasan'=>$request->ulasan,
-                ]);
+                $rows=Excel::import(new DataIndikatorImport($indikator_id,$request->ulasan), request()->file('data_file'));
+          
+               // $indikator->update([
+              //      'ulasan'=>$request->ulasan,
+               // ]);
+            
+                return redirect()->back();
             }else{
                 //bila tidak upload file data
             }

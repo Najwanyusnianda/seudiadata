@@ -19,6 +19,9 @@ class CreateDataIndikatorsTable extends Migration
             $table->string('indikator');
             $table->text('ulasan')->nullable();
             $table->text('data')->nullable();
+            $table->string('graph_type')->nullable();
+            $table->text('title')->nullable();
+            $table->text('subtitle')->nullable();
             $table->timestamps();
         });
     }
