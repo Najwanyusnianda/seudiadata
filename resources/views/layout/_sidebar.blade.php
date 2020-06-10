@@ -179,20 +179,20 @@
                         <p>Manajemen User</p>
                         <span class="caret"></span>
                     </a>
-                   <div class="collapse " id="user-management">
+                   <div class="collapse {{Request::is('user_management/*')? 'show' : ''}} " id="user-management">
                         <ul class="nav nav-collapse ">
                            <!-- <li class="">
                             <a href="#">
                                     <span class="sub-item">Input Data</span>
                                 </a>
                             </li>-->
-                            <li class="#">
-                                    <a href="{{route('user.index')}}">
+                            <li class="{{Request::is('user_management/create')? 'active' : ''}}">
+                                    <a href="{{route('user.create')}}">
                                         <span class="sub-item">Tambah User</span>
                                     </a>
                             </li>
-                            <li class="#">
-                                <a href="{{route('data.index')}}">
+                            <li class="{{Request::is('user_management/index')? 'active' : ''}}">
+                                <a href="{{route('user.index')}}">
                                     <span class="sub-item">Kelola User</span>
                                 </a>
                         </li>

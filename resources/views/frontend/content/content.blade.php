@@ -63,9 +63,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('content.map')}}" id="contentPeta">Peta</a>
         </li>
-        <li class="nav-item">
+       <!-- <li class="nav-item">
           <a class="nav-link disabled" href="{{route('content.data')}}"  id="contentData">Data</a>
-        </li>
+        </li>-->
      </ul> 
 </div>
 

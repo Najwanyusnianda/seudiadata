@@ -114,8 +114,9 @@ Route::group(['middleware' => ['auth']], function () {
       Route::get('/user_management/index', 'UserController@index')->name('index');
       Route::get('/user_management/create', 'UserController@create')->name('create');
       Route::post('/user_management/store', 'UserController@store')->name('store');
-      Route::get('/user_management/update', 'UserController@update')->name('update');
-      Route::get('/user_management/updateStore', 'UserController@updateStore')->name('storeUpdate');
+      Route::get('/user_management/update/{user_id}', 'UserController@update')->name('update');
+      Route::get('/user_management/updateStore/{user_id}', 'UserController@updateStore')->name('storeUpdate');
+      Route::get('/user_management/delete/{user_id}', 'UserController@updateStore')->name('delete');
     });
 
 
