@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="indikator">Tipe Visualisasi</label>
-                        <input type="indikator" class="form-control" id="indikator" name="indikator" readonly value="{{$indikator->graph_type}}">
+                        <input type="indikator" class="form-control" id="graph_type" name="graph_type" readonly value="{{$indikator->graph_type}}">
                         <small id="emailHelp2" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
@@ -41,7 +41,7 @@
                         <label for="data_file">Upload Data</label>
                         <input type="file" class="form-control-file" id="data_file" name="data_file">
                         <br>
-                    <a class="btn btn-info btn-sm" href="{{asset('dataTemplate/garis_template')}}">
+                    <a class="btn btn-info btn-sm" href="#" id="download_template">
                             <span class="btn-label">
                                 <i class="fa fa-download"></i>
                             </span>
@@ -73,5 +73,35 @@
         .catch( error => {
             console.error( error );
         } );
-    </script>
+</script>
+
+<script>
+var download_button = $('#download_template');
+
+download_button.click(function (e) {
+    e.preventDefault();
+    var type=$('#graph_type').val();
+    if(type=="Garis"){
+        var download_url="{{ route('data.downloadTemplate',['Garis']) }}";
+    }else if(type=="Batang"){
+        var download_url="{{ route('data.downloadTemplate',['Batang']) }}";
+    }else if(type=="pie_chart"){
+        var download_url="{{ route('data.downloadTemplate',['pie_chart']) }}";
+    }
+   
+
+    $.ajax({
+        type: 'GET',
+        url: download_url,
+        success: function (filepath) {
+        console.log(filepath);
+        window.open(filepath);
+        },
+        error: function (err) {
+            alert('gagal download');
+            }
+        });
+    });
+
+</script>
 @endsection

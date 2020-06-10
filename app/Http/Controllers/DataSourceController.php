@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\DataIndikator;
+use App\MapIndikator;
 use App\Imports\DataIndikatorImport;
 use Excel;
+use Response;
 
 class DataSourceController extends Controller
 {
@@ -61,6 +63,52 @@ class DataSourceController extends Controller
 
         
     }
+
+    public function getDownloadTemplate($type){
+     
+        if($type=='Garis'){
+            $file = asset('data/template_content/template_graph_garis.xlsx'); 
+        }elseif ($type=='Batang') {
+            # code...
+            $file = asset('data/template_content/template_graph_batang.xlsx'); 
+        }elseif ($type=='pie_chart') {
+            # code...
+            $file = asset('data/template_content/template_graph_pie.xlsx'); 
+        }elseif ($type=='map') {
+            # code...
+            $file = asset('data/template_content/template_graph_map.xlsx'); 
+        }
+        else{
+            $file = asset('data/template_content/template_graph_garis.xlsx'); 
+        }
+   
+        //$headers = array('Content-Type: application/pdf',);
+        return Response::json( $file);
+    }
+
+
+
+
+    ////map
+
+    public function mapIndicatorIndex($subject_id){
+        $subject=Subject::find($subject_id);
+        $indikators=MapIndikator::where('subject_id',$subject_id)->get();
+        //dd($indikators);
+        return view('backend.data_management.map_indicator_indeks',compact('indikators','subject'));
+    }
+
+    public function mapInputIndex($indikator_id){
+        
+    }
+
+
+    public function createMap(){
+        return view('backend.data_management.input_map_form');
+    }
+
+
+
 
 
 

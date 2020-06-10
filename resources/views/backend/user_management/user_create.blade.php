@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="indikator">Email</label>
-                        <input type="email" class="form-control" id="indikator" name="indikator" value="">
+                        <input type="email" class="form-control" id="email" name="email" value="">
                         <small id="emailHelp2" class="form-text text-muted"></small>
                     </div>
                     

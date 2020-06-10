@@ -5,9 +5,10 @@ namespace App\Imports;
 use App\DataIndikator;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 
-class DataIndikatorImport implements  ToCollection
+class DataIndikatorImport implements  ToCollection,WithHeadingRow
 {
 
 protected $id;
@@ -21,6 +22,8 @@ protected $id;
 
     public function collection(Collection $rows)
     {
+
+        
         $indikator_id=$this->id;
         $ulasan=$this->ulasan;
 

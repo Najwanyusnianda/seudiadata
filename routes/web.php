@@ -88,7 +88,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::name('content.')->group(function () {
         Route::get('/content/index/{subject_id}','ArticleController@index')->name('index');
         Route::get('/content/ulasan','ArticleController@ulasanIndex')->name('ulasan');
-        Route::get('/content/map','ArticleController@mapIndex')->name('map');
+        Route::get('/content/map/{subject_id}','ArticleController@mapIndex')->name('map');
         Route::get('/content/grafik/{subject_id}','ArticleController@graphIndex')->name('graph');
         Route::get('/content/data','ArticleController@dataIndex')->name('data');
     
@@ -97,6 +97,8 @@ Route::group(['middleware' => ['auth']], function () {
         
         //map
         //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
+
+       
     });
     
     Route::name('data.')->group(function () {
@@ -108,6 +110,17 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/data_management/input_data/store','DataSourceController@store');
         Route::post('/data_management/input_data/update','DataSourceController@update')->name('update');
         Route::post('/data_management/input_data/delete','DataSourceController@delete');
+
+        //map --------------------
+        Route::get('/data_management/input_data/index/{subject_id}/map_indikator','DataSourceController@mapIndicatorIndex')->name('mapIndicatorIndex');
+        Route::get('/data_management/input_data/index_input_map/{indikator_id}','DataSourceController@mapInputIndex')->name('mapInput.index');
+
+        Route::get('/data_management/input_data/create_map','DataSourceController@createMap')->name('createMap');
+        Route::post('/data_management/input_data/store_map','DataSourceController@storeMap');
+        Route::post('/data_management/input_data/update_map','DataSourceController@updateMap')->name('updateMap');
+        Route::post('/data_management/input_data/delete_map','DataSourceController@deleteMap');
+         //service
+         Route::get('/data_management/input_data/{type}','DataSourceController@getDownloadTemplate')->name('downloadTemplate');
     });
 
     Route::name('user.')->group(function () {

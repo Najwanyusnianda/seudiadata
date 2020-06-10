@@ -8,6 +8,7 @@
                     <div class="form-group">
                         <label for="indikatorSelect">Indikator</label>
                         <select class="form-control" id="indikatorSelect">
+                            <option selected disabled> Pilih Variabel</option>
                             @forelse ($subject_indikator as $indikator)
                         <option value={{route('content.graph.content',[$indikator->indikator_id])}}>{{$indikator->indikator_item}}</option>
                             @empty

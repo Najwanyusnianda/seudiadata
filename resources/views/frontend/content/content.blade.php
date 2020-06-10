@@ -61,7 +61,7 @@
           <a class="nav-link" href="{{route('content.graph',['subject_id'=>$subject_id])}}" id="contentGrafik">Grafik</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('content.map')}}" id="contentPeta">Peta</a>
+          <a class="nav-link" href="{{route('content.map',['subject_id'=>$subject_id])}}" id="contentPeta">Peta</a>
         </li>
        <!-- <li class="nav-item">
           <a class="nav-link disabled" href="{{route('content.data')}}"  id="contentData">Data</a>

@@ -8,7 +8,7 @@
      
                     <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-sm" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-today" data-toggle="pill" href="#pills-today" role="tab" aria-selected="true"><i class="fas fa-file-download"></i> Download Data</a>
+                            <a class="nav-link" id="download_data" data-toggle="download_data" href="#pills-today" role="tab" aria-selected="true"><i class="fas fa-file-download"></i> Download Data</a>
                         </li>
 
                     </ul>

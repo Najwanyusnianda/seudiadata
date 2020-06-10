@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\DataIndikator;
+use App\MapIndikator;
 
 class ArticleController extends Controller
 {
@@ -38,8 +39,8 @@ class ArticleController extends Controller
                 $df=[];
         
                 foreach($data as $d){
-                    $tahun[]=$d[0];
-                    $df[]=$d[1];
+                    $tahun[]=$d['tahun'];
+                    $df[]=$d['data'];
                   }
     
                   return view('frontend.content.graph.graph_vis',
@@ -51,10 +52,12 @@ class ArticleController extends Controller
                 $data=json_decode($data,true);
                 $item=[];
                 $df=[];
-             $alias=[];
+                $alias=[];
+                $alias=[];
                 foreach($data as $d){
-                    $item[]=$d[0];
-                    $df[]=$d[1];
+                    $item[]=$d['label'];
+                    $df[]=$d['data'];
+                    $alias=$d['indeks'];
                   }
     
                   return view('frontend.content.graph.graph_vis',
@@ -68,8 +71,9 @@ class ArticleController extends Controller
                 $df=[];
                 $alias=[];
                 foreach($data as $d){
-                    $item[]=$d[0];
-                    $df[]=$d[1];
+                    $item[]=$d['label'];
+                    $df[]=$d['data'];
+                    $alias=$d['indeks'];
                   }
     
                   return view('frontend.content.graph.graph_vis',
@@ -78,11 +82,26 @@ class ArticleController extends Controller
     
             }   
         }else{
-            return view('frontend.content.graph.graph_vis',['content_dt'=>$dt]);
+            return view('frontend.content.graph.graph_vis', ['item'=>$item,'data'=>$df,'content_dt'=>$dt,'alias'=>$alias]);
         }
 
 
     
+    }
+
+
+    public function mapIndex($subject_id){
+
+    }
+
+    public function mapContent($indikator_id){
+        $dt=MapIndikator::find($indikator_id);
+
+        $map_data=$dt->data
+        $map_data=json_decode($map_data,true);
+
+        return view('frontend.content.graph.graph_vis',
+        ['map_data'=>$map_data,'content_dt'=>$dt);
     }
 
     

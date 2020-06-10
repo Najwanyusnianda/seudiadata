@@ -41,7 +41,8 @@
                             {{$sb->subject_name}}
                         </td>
                         <td>
-                        <a href="{{route('data.indicatorIndex',[$sb->id])}}" class="btn btn-info btn-sm"><i class="fas fa-eye" aria-hidden="true"></i> Detail</a>
+                        <a href="{{route('data.indicatorIndex',[$sb->id])}}" class="btn btn-info btn-sm"><i class="fas fa-eye" aria-hidden="true"></i> Grafik</a>
+                        <a href="{{route('data.mapIndicatorIndex',[$sb->id])}}" class="btn btn-info btn-sm"><i class="fas fa-eye" aria-hidden="true"></i> Map</a>
                         </td>
                     </tr>
 
@@ -51,6 +52,8 @@
                 @endforelse
             </tbody>
         </table>
+
+    
     </div>
     <div class="card-footer">
 
