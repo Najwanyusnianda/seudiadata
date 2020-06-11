@@ -7,6 +7,7 @@ use App\Subject;
 use App\DataIndikator;
 use App\MapIndikator;
 use App\Imports\DataIndikatorImport;
+use App\Imports\MapImport;
 use Excel;
 use Response;
 
@@ -99,12 +100,68 @@ class DataSourceController extends Controller
     }
 
     public function mapInputIndex($indikator_id){
-        
+        $indikator=DataIndikator::find($indikator_id);
+        return view('backend.data_management.input_map_form',compact('indikator'));
     }
 
 
     public function createMap(){
-        return view('backend.data_management.input_map_form');
+        $subjects=Subject::all();
+        return view('backend.data_management.input_map_form',compact('subjects'));
+    }
+
+
+    public function storeMap(Request $request){
+        
+   // $indikator=DataIndikator::find($indikator_id);
+ 
+            if ($request->file('data_file')) {
+
+                $rows=Excel::import(new MapImport($request->subject,$request->indikator,0,$request->ulasan,$request->title,$request->subtitle,1), request()->file('data_file'));
+  
+       // $indikator->update([
+      //      'ulasan'=>$request->ulasan,
+       // ]);
+    
+                return redirect()->route('data.mapIndicatorIndex',[$request->subject])->with('success','Data Berhasil Ditambahkan');   
+            }
+            else {
+                //bila tidak upload file data
+            }
+
+
+    }
+
+    public function updateMap(Request $request){
+        $indikator_id=$request->indikator_id;
+
+      
+        if($indikator_id != null){
+
+            $indikator=DataIndikator::find($indikator_id);
+         
+            if ($request->file('data_file')) {
+
+                $rows=Excel::import(new MapImport(0,$request->indikator,$indikator_id,$request->ulasan,$request->title,$request->subtitle,2), request()->file('data_file'));
+          
+               // $indikator->update([
+              //      'ulasan'=>$request->ulasan,
+               // ]);
+            
+               return redirect()->route('data.mapIndicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Diupdate');   
+            }else{
+                //bila tidak upload file data
+                $indikator->update([
+                'ulasan'=>$request->ulasan,
+                'title'=>$request->title,
+                'subtitle'=>$request->subtitle
+                
+            ]);
+            return redirect()->route('data.mapIndicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Diupdate');   
+        }
+        }else{
+           // bila tidak ditemukan indikator
+        }
     }
 
 

@@ -27,7 +27,7 @@
  Daftar  Subject 
     </div>
     <div class="card-body">
-        <table class="table table-condensed">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nama Subject</th>
@@ -38,11 +38,12 @@
                 @forelse ($subject as $sb)
                     <tr>
                         <td>
-                            {{$sb->subject_name}}
+                            <span class="font-weight-bold"> {{$sb->subject_name}}</span>
+                           
                         </td>
                         <td>
-                        <a href="{{route('data.indicatorIndex',[$sb->id])}}" class="btn btn-info btn-sm"><i class="fas fa-eye" aria-hidden="true"></i> Grafik</a>
-                        <a href="{{route('data.mapIndicatorIndex',[$sb->id])}}" class="btn btn-info btn-sm"><i class="fas fa-eye" aria-hidden="true"></i> Map</a>
+                        <a href="{{route('data.indicatorIndex',[$sb->id])}}" class="btn btn-sm btn-info" style="background-color:#0984e3 !important;"><i class="fas fa-chart-area"></i> Grafik</a>
+                        <a href="{{route('data.mapIndicatorIndex',[$sb->id])}}" class="btn btn-info btn-sm" style="background-color:#00b894 !important"><i class="far fa-map"></i> Peta</a>
                         </td>
                     </tr>
 
@@ -53,7 +54,7 @@
             </tbody>
         </table>
 
-    
+
     </div>
     <div class="card-footer">
 

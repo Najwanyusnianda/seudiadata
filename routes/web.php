@@ -94,6 +94,7 @@ Route::group(['middleware' => ['auth']], function () {
     
         //graph
         Route::get('/content/grafik/indikator/{indikator_id}','ArticleController@graphContent')->name('graph.content');
+        Route::get('/content/map/indikator/{indikator_id}','ArticleController@mapContent')->name('map.content');
         
         //map
         //Route::get('/tk/map/jumlahKemiskinan','TenagaKerjaController@mapJumlahKemiskinan')->name('map.jumlah');
@@ -116,7 +117,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data_management/input_data/index_input_map/{indikator_id}','DataSourceController@mapInputIndex')->name('mapInput.index');
 
         Route::get('/data_management/input_data/create_map','DataSourceController@createMap')->name('createMap');
-        Route::post('/data_management/input_data/store_map','DataSourceController@storeMap');
+        Route::post('/data_management/input_data/store_map','DataSourceController@storeMap')->name('storeMap');
         Route::post('/data_management/input_data/update_map','DataSourceController@updateMap')->name('updateMap');
         Route::post('/data_management/input_data/delete_map','DataSourceController@deleteMap');
          //service

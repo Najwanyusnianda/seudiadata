@@ -91,17 +91,22 @@ class ArticleController extends Controller
 
 
     public function mapIndex($subject_id){
-
+        $subject_indikator=MapIndikator::where('map_indikators.subject_id',$subject_id)
+        ->rightJoin('subjects','map_indikators.subject_id','=','subjects.id')
+        ->select('map_indikators.id AS indikator_id','map_indikators.indikator AS indikator_item','subjects.subject_name AS subject_name','subjects.id AS subject_id')
+        ->get();
+       // dd($subject_indikator);
+        return view('frontend.content.content_map_wrapper',compact('subject_indikator'));
     }
 
     public function mapContent($indikator_id){
         $dt=MapIndikator::find($indikator_id);
 
-        $map_data=$dt->data
+        $map_data=$dt->data;
         $map_data=json_decode($map_data,true);
 
-        return view('frontend.content.graph.graph_vis',
-        ['map_data'=>$map_data,'content_dt'=>$dt);
+        return view('frontend.content.map.map_vis',
+        ['map_data'=>$map_data,'content_dt'=>$dt]);
     }
 
     

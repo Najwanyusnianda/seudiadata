@@ -1,7 +1,7 @@
 @extends('layout.master_front')
 
 @section('page_header')
-<h4 class="page-title">Daftar Indikator</h4>
+<h4 class="page-title">Daftar Indikator Grafik  {{ $subject->subject_name }}</h4>
 <ul class="breadcrumbs">
     <li class="nav-home">
         <a href="#">
@@ -18,7 +18,7 @@
         <i class="flaticon-right-arrow"></i>
     </li>
     <li class="nav-item">
-        <a href="{{route('data.indicatorIndex',[$subject->id])}}">Daftar Indikator</a>
+        <a href="{{route('data.indicatorIndex',[$subject->id])}}">Daftar Indikator Grafik {{ $subject->subject_name }}</a>
     </li>
 
 </ul>

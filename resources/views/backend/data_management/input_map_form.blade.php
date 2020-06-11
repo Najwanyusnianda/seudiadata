@@ -11,27 +11,27 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h4> Update Data Konten {{$indikator->indikator}}</h4>
+            <h4> Update Data Kontena {{$indikator->indikator}}</h4>
         </div>
         <div class="card-body">
         <form action="{{route('data.updateMap')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" class="form-control" id="indikator_id" name="indikator_id"  value="{{$indikator->id}}">
                 <div class="form-group">
-                    <label for="indikator">Parameter</label>
+                    <label for="text">Parameter</label>
                     <input type="indikator" class="form-control" id="indikator" name="indikator" readonly value="{{$indikator->indikator}}">
                     <small id="emailHelp2" class="form-text text-muted"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="indikator">Judul Konten</label>
-                    <input type="indikator" class="form-control" id="title" name="title"  value="{{$indikator->title ?? ''}}">
+                    <input type="text" class="form-control" id="title" name="title"  value="{{$indikator->title}}">
                     <small id="emailHelp2" class="form-text text-muted"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="indikator">Sub Judul Konten</label>
-                <input type="indikator" class="form-control" id="subtitle" name="subtitle"  value="{{$indikator->subtitle ?? ''}}">
+                <input type="text" class="form-control" id="subtitle" name="subtitle"  value="{{$indikator->subtitle }}">
                     <small id="emailHelp2" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
@@ -68,7 +68,19 @@
         <div class="card-body">
         <form action="{{route('data.storeMap')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="hidden" class="form-control" id="indikator_id" name="indikator_id"  value="">
+                <div class="form-group">
+                    <label for="indikator">Subject</label>
+                    <select class="form-control" id="subject" name="subject">
+                        <option selected disabled> Pilih Variabel</option>
+                        @forelse ($subjects as $subject)
+                         <option value="{{ $subject->id }}">{{ $subject->subject_name }}</option>
+                        @empty
+                            
+                        @endforelse
+                    </select>
+                    <small id="emailHelp2" class="form-text text-muted"></small>
+                </div>
+
                 <div class="form-group">
                     <label for="indikator">Indikator</label>
                     <input type="indikator" class="form-control" id="indikator" name="indikator"  value="">

@@ -1,7 +1,7 @@
 @extends('layout.master_front')
 
 @section('page_header')
-<h4 class="page-title">Daftar Indikator</h4>
+<h4 class="page-title">Daftar Indikator Peta {{ $subject->subject_name }}</h4>
 <ul class="breadcrumbs">
     <li class="nav-home">
         <a href="#">
@@ -18,7 +18,7 @@
         <i class="flaticon-right-arrow"></i>
     </li>
     <li class="nav-item">
-        <a href="{{ route('data.mapIndicatorIndex',[$subject->id]) }}">Daftar Indikator</a>
+        <a href="{{ route('data.mapIndicatorIndex',[$subject->id]) }}">Daftar Indikator Peta  {{ $subject->subject_name }} </a>
     </li>
 
 </ul>
@@ -36,7 +36,7 @@
             <div class="card-head-row" >
                 <div class="card-title">
                     @if(!empty($subject))
-                        Daftar Indikator {{ $subject->Indikators }}
+                        Daftar Indikator Peta {{ $subject->subject_name }} 
                     @else
                         error
                     @endif
@@ -44,11 +44,11 @@
 
                 <div class="card-tools">
                     <a href="{{ route('data.createMap') }}"
-                        class="btn btn-info btn-border btn-round btn-sm mr-2">
+                        class="btn btn-info btn-round btn-sm mr-2 ">
                         <span class="btn-label">
-                            <i class="fa fa-plush"></i>
+                            <i class="fas fa-plus"></i>
                         </span>
-                        Tambah variabel
+                        <span class="font-weight-bold"> Tambah Indikator</span>
                     </a>
 
                 </div>
@@ -69,7 +69,7 @@
                                 {{ $indikator->indikator }}
                             </td>
                             <td>
-                                <a href="{{ route('data.input.index',[$indikator->id]) }}"
+                                <a href="{{ route('data.mapInput.index',[$indikator->id]) }}"
                                     class="btn btn-info btn-sm">
                                     <span class="btn-label">
                                         <i class="far fa-edit"></i> Update Data
