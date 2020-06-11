@@ -42,6 +42,7 @@ function __construct($subject_id,$indikator,$id,$ulasan,$title,$subtitle,$isCrea
          $indikator_id=$this->id;   
         $indikator=MapIndikator::find($indikator_id);
             $indikator->update([
+                'indikator'=>$this->indikator,
                 'data'=>$data,
                 'ulasan'=>$ulasan,
                 'title'=>$this->title,

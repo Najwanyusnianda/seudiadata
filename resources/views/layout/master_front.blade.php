@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="{{ asset('assets/atlantis/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/atlantis/css/atlantis.min.css') }}">
 
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
     <!-- CSS Just for demo purpose, don't include it in your project --> 
     <style>
@@ -132,7 +134,10 @@
 <script src="{{ asset('assets/chartJS/Chart.bundle.min.js') }}"></script>
 
 <script src="{{ asset('assets/leafletJS/leaflet.js') }}"></script> 
-
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    
 
     <div
         style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

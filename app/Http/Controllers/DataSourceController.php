@@ -36,6 +36,25 @@ class DataSourceController extends Controller
 
     }
 
+    public function create(){
+        $subjects=Subject::all();
+        return view('backend.data_management.input_data_form',compact('subjects'));
+    }
+
+    public function store(Request $request){
+     
+        if ($request->file('data_file')) {
+
+        $rows=Excel::import(new DataIndikatorImport($request->subject,$request->indikator,$request->graph_type,0,$request->ulasan,$request->title,$request->subtitle,1), request()->file('data_file'));
+
+// $indikator->update([
+//      'ulasan'=>$request->ulasan,
+// ]);
+
+        return redirect()->route('data.indicatorIndex',[$request->subject])->with('success','Data Berhasil Ditambahkan');   
+        }
+    }
+
     public function update(Request $request){
     
         
@@ -48,7 +67,7 @@ class DataSourceController extends Controller
          
             if ($request->file('data_file')) {
 
-                $rows=Excel::import(new DataIndikatorImport($indikator_id,$request->ulasan,$request->title,$request->subtitle), request()->file('data_file'));
+                $rows=Excel::import(new DataIndikatorImport(0,$request->indikator,$request->graph_type,$indikator_id,$request->ulasan,$request->title,$request->subtitle,2), request()->file('data_file'));
           
                // $indikator->update([
               //      'ulasan'=>$request->ulasan,

@@ -107,10 +107,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data_management/input_data/index','DataSourceController@index')->name('index');
         Route::get('/data_management/input_data/index_input/{indikator_id}','DataSourceController@inputIndex')->name('input.index');
         Route::get('/data_management/input_data/index/{subject_id}/indikator','DataSourceController@indicatorIndex')->name('indicatorIndex');
-        Route::get('/data_management/input_data/create','DataSourceController@create');
-        Route::post('/data_management/input_data/store','DataSourceController@store');
+        Route::get('/data_management/input_data/create','DataSourceController@create')->name('create');
+        Route::post('/data_management/input_data/store','DataSourceController@store')->name('store');
         Route::post('/data_management/input_data/update','DataSourceController@update')->name('update');
-        Route::post('/data_management/input_data/delete','DataSourceController@delete');
+        Route::post('/data_management/input_data/delete','DataSourceController@delete')->name('delete');
 
         //map --------------------
         Route::get('/data_management/input_data/index/{subject_id}/map_indikator','DataSourceController@mapIndicatorIndex')->name('mapIndicatorIndex');

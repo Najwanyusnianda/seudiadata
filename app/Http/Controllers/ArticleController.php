@@ -57,7 +57,7 @@ class ArticleController extends Controller
                 foreach($data as $d){
                     $item[]=$d['label'];
                     $df[]=$d['data'];
-                    $alias=$d['indeks'];
+                    $alias[]=$d['indeks'];
                   }
     
                   return view('frontend.content.graph.graph_vis',
@@ -73,7 +73,7 @@ class ArticleController extends Controller
                 foreach($data as $d){
                     $item[]=$d['label'];
                     $df[]=$d['data'];
-                    $alias=$d['indeks'];
+                    $alias[]=$d['indeks'];
                   }
     
                   return view('frontend.content.graph.graph_vis',
@@ -82,7 +82,7 @@ class ArticleController extends Controller
     
             }   
         }else{
-            return view('frontend.content.graph.graph_vis', ['item'=>$item,'data'=>$df,'content_dt'=>$dt,'alias'=>$alias]);
+            return view('frontend.content.graph.graph_empty');
         }
 
 

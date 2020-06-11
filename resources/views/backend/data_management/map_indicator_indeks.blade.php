@@ -85,7 +85,7 @@
                         </tr>
 
                     @empty
-                        tidak ada Indikator
+                    
 
                     @endforelse
                 </tbody>

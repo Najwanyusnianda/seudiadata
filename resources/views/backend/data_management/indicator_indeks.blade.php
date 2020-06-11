@@ -33,19 +33,30 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
+                <div class="card-head-row" >
                 @if (!empty($subject))
                 Daftar Indikator {{$subject->Indikators}}
                 @else
                     error
                 @endif
-             
+                <div class="card-tools">
+                    <a href="{{ route('data.create') }}"
+                        class="btn btn-info btn-round btn-sm mr-2 ">
+                        <span class="btn-label">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="font-weight-bold"> Tambah Indikator</span>
+                    </a>
+
+                </div>
+                </div>
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table ">
                     <thead>
                         <tr>
-                            <td>Indikator</td>
-                            <td>Aksi</td>
+                            <th>Indikator</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

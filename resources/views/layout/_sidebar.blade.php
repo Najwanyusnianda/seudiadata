@@ -47,8 +47,7 @@
                         <span>
                             {{auth()->user()->name ?? '' }}
                         <span class="user-level">
-                            {{auth()->user()->typeId=1 ? 'superadmin' :
-                            (auth()->user()->typeId=2 ? 'admin' :'operator')}}
+                            {{auth()->user()->typeId==1 ? 'superadmin' : (auth()->user()->typeId==2 ? 'admin' :'operator')}}
                         </span>
                             <span class="caret"></span>
                         </span>
@@ -58,9 +57,14 @@
                     <div class="collapse in" id="collapseExample">
                         <ul class="nav">
                             <li>
-                                <a href="#profile">
+
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <span class="link-collapse">Logout</span>
                                 </a>
+                                
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
 
                         </ul>

@@ -54,7 +54,7 @@
                   
                 },
                 error:function(e){
-                 alert(e.toString());
+                 alert("Terjadi Kesalahan");
                 }
                 });
             });

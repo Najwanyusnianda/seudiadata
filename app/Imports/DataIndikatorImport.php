@@ -13,11 +13,15 @@ class DataIndikatorImport implements  ToCollection,WithHeadingRow
 
 protected $id;
 
- function __construct($id,$ulasan,$title,$subtitle) {
+ function __construct($subject_id,$indikator,$graph_type,$id,$ulasan,$title,$subtitle,$isCreate) {
+    $this->subject_id = $subject_id;
         $this->id = $id;
+        $this->graph_type = $graph_type;
         $this->ulasan= $ulasan;
         $this->title=$title;
         $this->subtitle=$subtitle;
+        $this->isCreate=$isCreate;
+       $this->indikator=$indikator;
  }
 
     public function collection(Collection $rows)
@@ -29,16 +33,32 @@ protected $id;
 
         $data=$rows;
         $data=json_encode($data,JSON_FORCE_OBJECT);
-        $indikator=DataIndikator::find($indikator_id);
        
-        $indikator=DataIndikator::find($indikator_id);
+        if ($this->isCreate==1) {
+            
+            $indikator=DataIndikator::create([
+                        'subject_id'=>$this->subject_id,
+                        'indikator'=>$this->indikator,
+                        'graph_type'=>$this->graph_type,
+                        'data'=>$data,
+                        'ulasan'=>$ulasan,
+                        'title'=>$this->title,
+                        'subtitle'=>$this->subtitle
+                ]);
+                return redirect()->route('data.indicatorIndex',[$indikator->subject_id])->with('success','Data Berhasil Ditambahkan');
+        }else{
+            $indikator=DataIndikator::find($indikator_id);
             $indikator->update([
+                'indikator'=>$this->indikator,
+                'graph_type'=>$this->graph_type,
                 'data'=>$data,
                 'ulasan'=>$ulasan,
                 'title'=>$this->title,
                 'subtitle'=>$this->subtitle
             ]);
 
-        return redirect()->route('data.indicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Di Update');   
+        return redirect()->route('data.indicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Di Update'); 
+        }
+  
     }
 }
