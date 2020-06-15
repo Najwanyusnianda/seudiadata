@@ -23,7 +23,7 @@ class ArticleController extends Controller
         ->rightJoin('subjects','data_indikators.subject_id','=','subjects.id')
         ->select('data_indikators.id AS indikator_id','data_indikators.indikator AS indikator_item','subjects.subject_name AS subject_name','subjects.id AS subject_id')
         ->get();
-        //dd($subject_indikator);
+       // dd($subject_indikator);
         return view('frontend.content.content_graph_wrapper',compact('subject_indikator'));
     }
 

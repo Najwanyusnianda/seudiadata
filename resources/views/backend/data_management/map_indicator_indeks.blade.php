@@ -75,6 +75,11 @@
                                         <i class="far fa-edit"></i> Update Data
                                     </span>
                                 </a>
+                                <a href="{{route('data.deleteMap',[$indikator->id])}}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah ingin menghapus indikator ini?');">    
+                                    <span class="btn-label">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </span>
+                                </a>
                                 <!--<a class="btn btn-danger">
                                 <span class="btn-label">
                                     <i class="fa fa-heart"></i>

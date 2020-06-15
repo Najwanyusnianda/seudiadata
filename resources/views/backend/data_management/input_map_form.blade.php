@@ -1,5 +1,57 @@
 @extends('layout.master_front')
 
+@section('page_header')
+@if (!empty($indikator))
+<h4 class="page-title">Update Data Konten Peta {{$indikator->indikator}}</h4>
+<ul class="breadcrumbs">
+    <li class="nav-home">
+        <a href="#">
+            <i class="flaticon-home"></i>
+        </a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('data.index') }}">Daftar Subject</a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('data.mapIndicatorIndex',[$subject->id]) }}">Daftar Indikator Peta  {{ $subject->subject_name }} </a>
+    </li>
+    <li class="nav-item">
+        <a href="#">Update Data Konten Peta {{$indikator->indikator}} </a>
+    </li>
+
+</ul>
+@else
+<h4 class="page-title">Tambah Indikator Baru Peta </h4>
+<ul class="breadcrumbs">
+    <li class="nav-home">
+        <a href="#">
+            <i class="flaticon-home"></i>
+        </a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('data.index') }}">Daftar Subject</a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="#">Tambah Indikator Baru </a>
+    </li>
+
+</ul>
+@endif
+
+@endsection
+
 @section('content')
 @if ($message = Session::get('success'))
 <div class="alert alert-success alert-block">
@@ -11,15 +63,15 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h4> Update Data Kontena {{$indikator->indikator}}</h4>
+            <h4> Update Data Konten Peta {{$indikator->indikator}}</h4>
         </div>
         <div class="card-body">
         <form action="{{route('data.updateMap')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" class="form-control" id="indikator_id" name="indikator_id"  value="{{$indikator->id}}">
                 <div class="form-group">
-                    <label for="text">Parameter</label>
-                    <input type="indikator" class="form-control" id="indikator" name="indikator" readonly value="{{$indikator->indikator}}">
+                    <label for="text">Indikator</label>
+                    <input type="indikator" class="form-control" id="indikator" name="indikator" value="{{$indikator->indikator}}">
                     <small id="emailHelp2" class="form-text text-muted"></small>
                 </div>
 

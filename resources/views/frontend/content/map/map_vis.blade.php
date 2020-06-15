@@ -1,13 +1,34 @@
 
+<div class="row">
+	<div class="card col-md-12 col-12">
+        <div class="card-header">
+            <div class="card-head-row card-tools-still-right">
+            <h4 class="card-title">{{$content_dt->title ?? 'Tidak ada Judul'}}</h4>
+                <div class="card-tools">
+     
+                    <ul class="nav nav-pills nav-secondary nav-pills-no-bd nav-sm" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="download_data" data-toggle="download_data" href="{{ route('data.downloadDataMap',[$content_dt->id]) }}" role="tab" aria-selected="true"><i class="fas fa-file-download"></i> Download Data</a>
+                        </li>
 
-        <div id="map" class="mx-auto"></div>
+                    </ul>
+                   <!-- <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card">
+                        <span class="fa fa-sync-alt"></span>
+                    </button>-->
+                </div>
+            </div>
+            <p class="card-category">{{$content_dt->subtitle ?? 'Tidak ada Judul'}}</p>
+        </div>
+
+    </div>
+</div>
+
+	<div id="map" class="mx-auto"></div>
+
+        
 
 
         <script src="{{ asset('data/us-states.js') }}"></script>
-
-
-
-
 <script>
 console.log(statesData);
 var mapboxAccessToken = 'pk.eyJ1IjoiZW5qZXdlIiwiYSI6ImNrOXphaW1jZDBjcHIzZW52Y2cwczM3cTMifQ.CNAgLezF4O0YBasQm4bEdA';

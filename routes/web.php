@@ -14,7 +14,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
+////URL::forceRootUrl('https://webapps.bps.go.id/acehbaratdayakab/');
+//URL::forceScheme('https');
 
 Route::group(['middleware' => ['auth']], function () {
     //
@@ -110,7 +111,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data_management/input_data/create','DataSourceController@create')->name('create');
         Route::post('/data_management/input_data/store','DataSourceController@store')->name('store');
         Route::post('/data_management/input_data/update','DataSourceController@update')->name('update');
-        Route::post('/data_management/input_data/delete','DataSourceController@delete')->name('delete');
+        Route::get('/data_management/input_data/{indikator_id}/delete/','DataSourceController@delete')->name('delete');
 
         //map --------------------
         Route::get('/data_management/input_data/index/{subject_id}/map_indikator','DataSourceController@mapIndicatorIndex')->name('mapIndicatorIndex');
@@ -119,9 +120,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data_management/input_data/create_map','DataSourceController@createMap')->name('createMap');
         Route::post('/data_management/input_data/store_map','DataSourceController@storeMap')->name('storeMap');
         Route::post('/data_management/input_data/update_map','DataSourceController@updateMap')->name('updateMap');
-        Route::post('/data_management/input_data/delete_map','DataSourceController@deleteMap');
+        Route::get('/data_management/input_data/{indikator_id}/delete_map/','DataSourceController@deleteMap')->name('deleteMap');
          //service
          Route::get('/data_management/input_data/{type}','DataSourceController@getDownloadTemplate')->name('downloadTemplate');
+         Route::get('/data_management/input_data/{indikator_id}/download','DataSourceController@getDownloadData')->name('downloadData');
+         Route::get('/data_management/input_data_map/{indikator_id}/download','DataSourceController@getDownloadDataMap')->name('downloadDataMap');
     });
 
     Route::name('user.')->group(function () {
@@ -129,8 +132,8 @@ Route::group(['middleware' => ['auth']], function () {
       Route::get('/user_management/create', 'UserController@create')->name('create');
       Route::post('/user_management/store', 'UserController@store')->name('store');
       Route::get('/user_management/update/{user_id}', 'UserController@update')->name('update');
-      Route::get('/user_management/updateStore/{user_id}', 'UserController@updateStore')->name('storeUpdate');
-      Route::get('/user_management/delete/{user_id}', 'UserController@updateStore')->name('delete');
+      Route::post('/user_management/updateStore/{user_id}', 'UserController@updateStore')->name('storeUpdate');
+      Route::get('/user_management/delete/{user_id}', 'UserController@delete')->name('delete');
     });
 
 

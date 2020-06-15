@@ -1,5 +1,29 @@
 @extends('layout.master_front')
+@section('page_header')
+<h4 class="page-title">Tambah User</h4>
+<ul class="breadcrumbs">
+    <li class="nav-home">
+        <a href="#">
+            <i class="flaticon-home"></i>
+        </a>
+    </li>
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="{{route('user.index')}}">Kelola User</a>
+    </li>
 
+    <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+    </li>
+    <li class="nav-item">
+        <a href="{{route('user.create')}}">Tambah User</a>
+    </li>
+
+
+</ul>
+@endsection
 @section('content')
     <div class="container-fluid">
         <div class="card">
@@ -41,8 +65,9 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Role </label>
                         <select class="form-control" id="role" name="role">
-                            <option value="1" >Admin</option>
-                            <option value="2" >Operator</option>
+                            <!--<option value="2" >Admin</option>-->
+                            <option value="3" >Operator</option>
+                            <option value="4" >User</option>
                         </select>
                     </div>
 
@@ -79,8 +104,9 @@
                         <label for="exampleFormControlSelect1">Role </label>
                         <select class="form-control" id="role" name="role">
                             <option disabled >Pilih Role</option>
-                            <option value="1"  {{ $user->typeId==1 ? 'selected' : '' }}>Admin</option>
-                            <option value="2" {{ $user->typeId==2 ? 'selected' : '' }} >Operator</option>
+                           <!-- <option value="2"  {{ $user->typeId==1 ? 'selected' : '' }}>Admin</option>-->
+                            <option value="3" {{ $user->typeId==2 ? 'selected' : '' }} >Operator</option>
+                            <option value="4" >User</option>
                         </select>
                     </div>
 

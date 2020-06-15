@@ -44,4 +44,13 @@ class UserController extends Controller
         ]);
         return redirect()->route('user.index');
     }
+
+
+    public function delete($user_id){
+        $user=User::find($user_id);
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Stock has been deleted Successfully');
+
+    }
 }

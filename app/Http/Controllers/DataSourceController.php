@@ -8,6 +8,7 @@ use App\DataIndikator;
 use App\MapIndikator;
 use App\Imports\DataIndikatorImport;
 use App\Imports\MapImport;
+use App\Exports\MapIndikatorExport;
 use Excel;
 use Response;
 
@@ -84,6 +85,18 @@ class DataSourceController extends Controller
         
     }
 
+    public function delete($indikator_id){
+        $dt_ind=DataIndikator::find($indikator_id);
+        $dt_ind->delete();
+        return redirect()->route('data.indicatorIndex',[$dt_ind->subject_id]);
+    }
+
+    public function deleteMap($indikator_id){
+        $dt_ind=DataIndikator::find($indikator_id);
+        $dt_ind->delete();
+        return redirect()->back();
+    }
+
     public function getDownloadTemplate($type){
      
         if($type=='Garis'){
@@ -106,7 +119,24 @@ class DataSourceController extends Controller
         return Response::json( $file);
     }
 
+    public function getDownloadData($indikator_id){
+        $indikator=DataIndikator::find($indikator_id);
+        $data=json_decode($indikator->data);
 
+        $export = new DataIndikatorExport([$data]);
+
+    return Excel::download($export, $indikator->indikator.'.xlsx');
+    }
+
+    
+    public function getDownloadDataMap($indikator_id){
+        $indikator=MapIndikator::find($indikator_id);
+        $data=json_decode($indikator->data);
+
+        $export = new MapIndikatorExport([$data]);
+
+    return Excel::download($export, $indikator->indikator.'.xlsx');
+    }
 
 
     ////map
@@ -119,8 +149,9 @@ class DataSourceController extends Controller
     }
 
     public function mapInputIndex($indikator_id){
-        $indikator=DataIndikator::find($indikator_id);
-        return view('backend.data_management.input_map_form',compact('indikator'));
+        $indikator=MapIndikator::find($indikator_id);
+        $subject=Subject::find($indikator->subject_id);
+        return view('backend.data_management.input_map_form',compact('indikator','subject'));
     }
 
 
@@ -157,7 +188,7 @@ class DataSourceController extends Controller
       
         if($indikator_id != null){
 
-            $indikator=DataIndikator::find($indikator_id);
+            $indikator=MapIndikator::find($indikator_id);
          
             if ($request->file('data_file')) {
 
@@ -170,10 +201,12 @@ class DataSourceController extends Controller
                return redirect()->route('data.mapIndicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Diupdate');   
             }else{
                 //bila tidak upload file data
+            
                 $indikator->update([
                 'ulasan'=>$request->ulasan,
                 'title'=>$request->title,
-                'subtitle'=>$request->subtitle
+                'subtitle'=>$request->subtitle,
+                'indikator'=>$request->indikator
                 
             ]);
             return redirect()->route('data.mapIndicatorIndex',[ $indikator->subject_id])->with('success','Data Berhasil Diupdate');   
