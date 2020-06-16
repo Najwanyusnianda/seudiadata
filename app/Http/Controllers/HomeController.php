@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Subject;
+use App\DataIndikator;
+use App\MapIndikator;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user=User::where('typeId','=','4')->count();
+        $subject=Subject::count();
+        $graph=DataIndikator::count();
+        $map=MapIndikator::count();
+        return view('home',compact('user','subject','graph','map'));
     }
 }

@@ -54,7 +54,7 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->typeId==1 ? 'Superadmin' : ($user->typeId==2 ? 'admin' : 'operator') }}</td>
+                    <td>{{ $user->typeId==1 ? 'Superadmin' : ($user->typeId==2 ? 'admin' : ($user->typeId==3 ? 'operator' : 'user')) }}</td>
 
                     <td>
                         <a href="{{ route('user.update',['user_id'=>$user->id]) }}" class="btn btn-sm btn-success"> Update Data</a>

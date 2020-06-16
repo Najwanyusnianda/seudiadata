@@ -33,7 +33,7 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-    public function storeUpdate(Request $request,$user_id){
+    public function updateStore(Request $request,$user_id){
         $user=User::find($user_id);
         $user->update([
             'name'=>$request->name,

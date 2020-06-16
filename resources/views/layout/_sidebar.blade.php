@@ -47,7 +47,7 @@
                         <span>
                             {{auth()->user()->name ?? '' }}
                         <span class="user-level">
-                            {{auth()->user()->typeId==1 ? 'superadmin' : (auth()->user()->typeId==2 ? 'admin' :'operator')}}
+                            {{auth()->user()->typeId==1 ? 'superadmin' : (auth()->user()->typeId==2 ? 'admin' : (auth()->user()->typeId==3 ? 'operator' : 'user'))}}
                         </span>
                             <span class="caret"></span>
                         </span>
@@ -72,17 +72,17 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('/')? 'active' : ''  }}">
                     <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="dashboard">
+                    <div class="collapse {{Request::is('/')? 'show' : ''  }}" id="dashboard">
                         <ul class="nav nav-collapse">
-                            <li>
-                                <a href="#">
-                                    <span class="sub-item">Dashboard 1</span>
+                            <li class="{{Request::is('/')? 'active' : ''  }}">
+                                <a href="{{ route('home') }}">
+                                    <span class="sub-item">Dashboard </span>
                                 </a>
                             </li>
                         </ul>
@@ -147,62 +147,66 @@
                         </ul>
                     </div>
                 </li>
-
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">Administrasi</h4>
-                </li>
-                <li class="nav-item {{Request::is('data_management/*')? 'submenu active' : ''}} ">
-                    <a data-toggle="collapse" href="#data-management">
-                        <i class="fas fa-file-alt"></i>
-                        <p>Manajemen Data</p>
-                        <span class="caret"></span>
+@if (auth()->user()->typeId != 4)
+<li class="nav-section">
+    <span class="sidebar-mini-icon">
+        <i class="fa fa-ellipsis-h"></i>
+    </span>
+    <h4 class="text-section">Administrasi</h4>
+</li>
+<li class="nav-item {{Request::is('data_management/*')? 'submenu active' : ''}} ">
+    <a data-toggle="collapse" href="#data-management">
+        <i class="fas fa-file-alt"></i>
+        <p>Manajemen Data</p>
+        <span class="caret"></span>
+    </a>
+   <div class="collapse {{Request::is('data_management/*')? 'show' : ''}} " id="data-management">
+        <ul class="nav nav-collapse ">
+           <!-- <li class="">
+            <a href="#">
+                    <span class="sub-item">Input Data</span>
+                </a>
+            </li>-->
+            <li class="{{Request::is('data_management/*')? 'active' : ''}}">
+                     <a href="{{route('data.index')}}" >
+                        <span class="sub-item">Kelola Data</span>
                     </a>
-                   <div class="collapse {{Request::is('data_management/*')? 'show' : ''}} " id="data-management">
-                        <ul class="nav nav-collapse ">
-                           <!-- <li class="">
-                            <a href="#">
-                                    <span class="sub-item">Input Data</span>
-                                </a>
-                            </li>-->
-                            <li class="{{Request::is('data_management/*')? 'active' : ''}}">
-                                     <a href="{{route('data.index')}}" >
-                                        <span class="sub-item">Kelola Data</span>
-                                    </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </li>
+            </li>
+            
+        </ul>
+    </div>
+</li> 
+@endif
 
-                <li class="nav-item {{Request::is('user_management/*')? 'submenu active' : ''}} ">
-                    <a data-toggle="collapse" href="#user-management">
-                        <i class="fas fa-users-cog"></i>
-                        <p>Manajemen User</p>
-                        <span class="caret"></span>
+@if (auth()->user()->typeId==1 or auth()->user()->typeId==2)
+<li class="nav-item {{Request::is('user_management/*')? 'submenu active' : ''}} ">
+    <a data-toggle="collapse" href="#user-management">
+        <i class="fas fa-users-cog"></i>
+        <p>Manajemen User</p>
+        <span class="caret"></span>
+    </a>
+   <div class="collapse {{Request::is('user_management/*')? 'show' : ''}} " id="user-management">
+        <ul class="nav nav-collapse ">
+           <!-- <li class="">
+            <a href="#">
+                    <span class="sub-item">Input Data</span>
+                </a>
+            </li>-->
+            <li class="{{Request::is('user_management/create')? 'active' : ''}}">
+                    <a href="{{route('user.create')}}">
+                        <span class="sub-item">Tambah User</span>
                     </a>
-                   <div class="collapse {{Request::is('user_management/*')? 'show' : ''}} " id="user-management">
-                        <ul class="nav nav-collapse ">
-                           <!-- <li class="">
-                            <a href="#">
-                                    <span class="sub-item">Input Data</span>
-                                </a>
-                            </li>-->
-                            <li class="{{Request::is('user_management/create')? 'active' : ''}}">
-                                    <a href="{{route('user.create')}}">
-                                        <span class="sub-item">Tambah User</span>
-                                    </a>
-                            </li>
-                            <li class="{{Request::is('user_management/index')? 'active' : ''}}">
-                                <a href="{{route('user.index')}}">
-                                    <span class="sub-item">Kelola User</span>
-                                </a>
-                        </li>
-                        </ul>
-                    </div>
-                </li>
+            </li>
+            <li class="{{Request::is('user_management/index')? 'active' : ''}}">
+                <a href="{{route('user.index')}}">
+                    <span class="sub-item">Kelola User</span>
+                </a>
+        </li>
+        </ul>
+    </div>
+</li>
+@endif
+
             
             </ul>
         </div>
